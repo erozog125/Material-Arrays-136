@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FutbolShop | Marketplace</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    
+    <canvas id="bg-canvas"></canvas>
+
+
+    <header>
+        <div class="logo">FutbolShop ⚽</div>
+        <input type="text" id="buscador" placeholder="Busca equipo, marca o modelo..." onkeyup="filtrarProductos()">
+        <div class="cart-info">
+            🛒 Carrito: <span id="cart-count">0</span>
+        </div>
+    </header>
+
+    <div class="main-layout">
+        <main id="product-container">
+            </main>
+
+        <aside id="carrito-detalle">
+            <h2>Tu Carrito</h2>
+            <ul id="lista-carrito">
+                </ul>
+            <div class="total-container">
+                <strong>Total: $<span id="total-precio">0</span></strong>
+            </div>
+            <button id="vaciar-carrito" onclick="vaciarCarrito()">Vaciar Carrito</button>
+            <button id="finalizar-compra" onclick="alert('¡Gracias por tu compra!')">Finalizar Pedido</button>
+        </aside>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
