@@ -91,3 +91,63 @@ const renderizarProductos = (productosAMostrar = productos) => {
         `;
     }
 };
+// Funci贸n para agregar productos al carrito
+const agregarAlCarrito = (id) => {
+
+    // Buscar si el producto ya existe
+    const productoExiste = carrito.find(producto => producto.id === id);
+
+    if (productoExiste) {
+
+        // Aumentar cantidad
+        productoExiste.cantidad++;
+
+    } else {
+
+        // Buscar producto original
+        const producto = productos.find(producto => producto.id === id);
+
+        // Agregar producto
+        carrito.push({
+            ...producto,
+            cantidad: 1
+        });
+    }
+
+    guardarLocalStorage();
+    renderizarCarrito();
+};
+
+// Funci贸n para renderizar carrito
+const renderizarCarrito = () => {
+
+    // Limpiar carrito
+    contenedorCarrito.innerHTML = "";
+
+    // Recorrer carrito
+    carrito.forEach(producto => {
+
+        contenedorCarrito.innerHTML += `
+        
+        <div class="item-carrito">
+
+            <h4>${producto.nombre}</h4>
+
+            <p>Precio: $${producto.precio}</p>
+
+            <p>Cantidad: ${producto.cantidad}</p>
+
+            <button 
+                class="eliminar"
+                onclick="eliminarProducto(${producto.id})"
+            >
+                Eliminar
+            </button>
+
+        </div>
+        
+        `;
+    });
+
+    calcularTotal();
+};
