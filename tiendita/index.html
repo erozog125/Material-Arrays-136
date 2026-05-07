@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameVault | Tienda Oficial</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <div class="logo">GAME<span>VAULT</span></div>
+            <ul class="nav-links">
+                <li><a href="#">Inicio</a></li>
+                <li>
+                    <button id="cart-icon" class="cart-btn">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cart-count" class="cart-badge">0</span>
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="side-cart" class="side-cart">
+        <div class="cart-header">
+            <h2>Mi Carrito</h2>
+            <button id="close-cart" class="close-btn">&times;</button>
+        </div>
+        <div id="cart-items" class="cart-items">
+        </div>
+        <div class="cart-footer">
+            <p>Total: <span>$</span><span id="cart-total">0.00</span></p>
+            <button class="btn-checkout">Finalizar Compra</button>
+        </div>
+    </div>
+
+    <section class="hero">
+        <h1>Sube de Nivel</h1>
+        <p>Los mejores títulos para PC y Consolas que puedas encontrar </p>
+    </section>
+
+    <main class="container">
+        <div class="games-grid">
+            
+            <div class="game-card" data-id="1" data-price="59.99">
+                <img src="Assets/images/Call_of_Duty_Black_Ops_III.webp" alt="Juego 1">
+                <div class="card-info">
+                    <h3>Call of Duty Black Ops III</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        <span>4.5</span>
+                    </div>
+                    <p class="description">es un videojuego de disparos en primera persona ambientado en un futuro distópico en 2065</p>
+                    <p class="price">$59.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-id="2" data-price="39.99">
+                <img src="Assets/images/f560cc7d9a907ae6e4bc5d914a844889.jpg" alt="Juego 2">
+                <div class="card-info">
+                    <h3>Minecraft</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>4.0</span>
+                    </div>
+                    <p class="description">Minecraft es un videojuego de construcción de tipo "mundo abierto" creado por Markus Persson.</p>
+                    <p class="price">$39.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-id="3" data-price="29.99">
+                <img src="Assets/images/Halo_4_pack_art_before_e3.webp" alt="Juego 3">
+                <div class="card-info">
+                    <h3>Halo 4</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>5.0</span>
+                    </div>
+                    <p class="description">Halo 4 es un videojuego de disparos en primera persona que se desarrolla en la franquicia Halo</p>
+                    <p class="price">$29.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-id="4" data-price="49.99">
+                <img src="Assets/images/hollow-knight-silksong-launches-worldwide-soundtrack-arrives-on-bandcamp.webp" alt="Juego 4">
+                <div class="card-info">
+                    <h3>hollow knight silksong</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i>
+                        <span>3.5</span>
+                    </div>
+                    <p class="description"> es un videojuego metroidvania desarrollado por Team Cherry</p>
+                    <p class="price">$49.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-id="5" data-price="19.99">
+                <img src="Assets/images/wallpapersden.com_god-of-war-ragnarok-hd-game-poster_1920x1080.jpg" alt="Juego 5">
+                <div class="card-info">
+                    <h3>god of war ragnarok</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                        <span>4.2</span>
+                    </div>
+                    <p class="description">es un videojuego de acción y aventura basado en la mitología nórdica</p>
+                    <p class="price">$19.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
+                </div>
+            </div>
+
+            <div class="game-card" data-id="6" data-price="69.99">
+                <img src="Assets/images/mixcollage-03-dec-2024-09-41-pm-3369.avif" alt="Juego 6">
+                <div class="card-info">
+                    <h3>little nightmares III</h3>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        <span>4.9</span>
+                    </div>
+                    <p class="description">es la próxima entrega de la aclamada serie de plataformas de Bandai Namco</p>
+                    <p class="price">$69.99</p>
+                    <button class="btn-add">Añadir al Carrito</button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 GameVault - Desarrollado por Eric Daniel Barreto</p>
+    </footer>
+
+    <script src="button.js"></script>
+</body>
+</html>
