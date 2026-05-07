@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ferrer Market | Planes de Trading</title>
+
+  <!-- Google Fonts: futurista + elegante -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+
+      <!-- Logo -->
+      <div class="logo">
+        <span class="logo-mark">FM</span>
+        <span class="logo-text">Ferrer<em>Market</em></span>
+      </div>
+
+      <!-- Nav -->
+      <nav class="main-nav" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#catalogo">Planes</a></li>
+          <li><a href="#about">Sobre mí</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+
+      <!-- Carrito botón -->
+      <button class="cart-toggle" id="cartToggle" aria-label="Abrir carrito">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="none"
+          viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13l-1.4 7h12.8M7 13H5.4M10 21a1 1 0 100-2 1 1 0 000 2zm7 0a1 1 0 100-2 1 1 0 000 2z" />
+        </svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" aria-label="Sección principal">
+    <div class="hero-content">
+      <p class="hero-tag">Trading profesional · Colombia</p>
+      <h1 class="hero-title">
+        Domina el<br />
+        <span class="highlight">mercado.</span>
+      </h1>
+      <p class="hero-sub">
+        Señales en vivo, mentoría 1:1 y análisis institucional.<br />
+        Elige el plan que se adapta a tu nivel.
+      </p>
+      <a href="#catalogo" class="btn-primary">Ver planes</a>
+    </div>
+    <div class="hero-deco" aria-hidden="true">
+      <div class="deco-ring ring-1"></div>
+      <div class="deco-ring ring-2"></div>
+      <div class="deco-ring ring-3"></div>
+      <div class="deco-ticker">
+        <span>EURUSD +0.32%</span>
+        <span>GBPUSD -0.11%</span>
+        <span>DXY +0.08%</span>
+        <span>NAS100 +1.2%</span>
+        <span>XAUUSD +0.54%</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MAIN ========== -->
+  <main>
+
+    <!-- CATÁLOGO DE PLANES -->
+    <section class="catalog-section" id="catalogo" aria-label="Catálogo de planes">
+      <div class="section-header">
+        <p class="section-tag">// planes disponibles</p>
+        <h2 class="section-title">Elige tu plan</h2>
+        <p class="section-sub">
+          Accede a las herramientas que usan los traders institucionales.
+        </p>
+      </div>
+
+      <!-- Grid de productos — renderizado por JS -->
+      <div class="products-grid" id="productsGrid" role="list">
+        <!-- Las cards se insertan dinámicamente desde products.js + app.js -->
+      </div>
+    </section>
+
+    <!-- SOBRE MÍ -->
+    <section class="about-section" id="about" aria-label="Sobre el instructor">
+      <div class="about-inner">
+        <div class="about-image">
+          <div class="about-img-placeholder" aria-hidden="true">
+            <span>ER</span>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="section-tag">// sobre mí</p>
+          <h2>Edwin Rozo</h2>
+          <p>
+            Trader independiente especializado en Smart Money Concepts (SMC) e
+            Inner Circle Trader (ICT). Opero principalmente Forex e índices con
+            enfoque en liquidez institucional, orderflow y zonas de premium/discount.
+          </p>
+          <p>
+            Mi objetivo es que entiendas cómo mueven el precio los institucionales
+            y puedas operar con lógica, no con emoción.
+          </p>
+          <ul class="about-badges">
+            <li>SMC / ICT</li>
+            <li>Forex & Índices</li>
+            <li>Mentoría 1:1</li>
+            <li>Señales en vivo</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer" id="contacto">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-mark sm">FM</span>
+        <span>Ferrer<em>Market</em></span>
+      </div>
+      <p class="footer-copy">
+        © 2025 Ferrer Market · Edwin Rozo Gómez · Todos los derechos reservados.
+      </p>
+      <p class="footer-disclaimer">
+        El trading implica riesgo. Los resultados pasados no garantizan resultados futuros.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ========== CARRITO SIDEBAR ========== -->
+  <aside class="cart-sidebar" id="cartSidebar" aria-label="Carrito de compras" aria-hidden="true">
+    <div class="cart-header">
+      <h2>Tu carrito</h2>
+      <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">✕</button>
+    </div>
+
+    <!-- Lista de items — renderizado por JS -->
+    <ul class="cart-items" id="cartItems">
+      <!-- Items del carrito insertados por cart.js -->
+    </ul>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <span id="cartTotal">$0 COP</span>
+      </div>
+      <button class="btn-primary full" id="checkoutBtn">Proceder al pago</button>
+      <button class="btn-ghost full" id="clearCartBtn">Vaciar carrito</button>
+    </div>
+  </aside>
+
+  <!-- Overlay para cerrar el carrito -->
+  <div class="cart-overlay" id="cartOverlay" aria-hidden="true"></div>
+
+  <!-- ========== SCRIPTS ========== -->
+  <!-- Orden importante: productos → carrito → app -->
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
