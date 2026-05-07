@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TenisHub 🎾</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ENCABEZADO PRINCIPAL -->
+<header class="header">
+    <div class="header-brand">
+        <span class="brand-icon">🎾</span>
+        <h1 class="brand-name">TenisHub</h1>
+    </div>
+    <button class="carrito-btn" id="btn-carrito" aria-label="Abrir carrito">
+        <span class="carrito-emoji">🛒</span>
+        <span class="badge" id="contador">0</span>
+    </button>
+</header>
+
+<!-- CONTENIDO PRINCIPAL -->
+<main class="main">
+
+    <!-- CATÁLOGO DE PRODUCTOS -->
+    <section class="productos" aria-label="Catálogo de productos">
+        <h2 class="seccion-titulo">Catálogo</h2>
+        <!-- Las cards de productos son generadas dinámicamente por JavaScript -->
+        <div id="contenedor-productos" class="grid-productos"></div>
+    </section>
+
+    <!-- PANEL DEL CARRITO -->
+    <aside class="carrito" id="panel-carrito" aria-label="Carrito de compras">
+        <h2 class="seccion-titulo">Tu Carrito</h2>
+        <!-- Los items del carrito son renderizados dinámicamente -->
+        <div id="lista-carrito">
+            <p class="carrito-vacio">Tu carrito está vacío 🛒</p>
+        </div>
+        <div class="carrito-footer">
+            <p class="total">Total: <strong>$<span id="total">0</span></strong></p>
+            <button class="btn-vaciar" id="btn-vaciar">Vaciar carrito</button>
+        </div>
+    </aside>
+
+</main>
+
+<!-- PIE DE PÁGINA -->
+<footer class="footer">
+    <p>© 2026 TenisHub — Proyecto ADSO · SENA</p>
+</footer>
+
+<!-- Script principal del carrito y catálogo -->
+</body>
+</html>
