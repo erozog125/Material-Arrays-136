@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SoccerJersey — Camisetas de Fútbol</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">Soccer<span>Jersey</span></div>
+    <nav>
+      <a href="#">Inicio</a>
+    </nav>
+    <button id="cart-toggle" aria-label="Abrir carrito">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+      </svg>
+      Carrito
+      <span id="cart-count">0</span>
+    </button>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <span class="hero-tag">⚽ Temporada 2024–25</span>
+    <h1>Las mejores<br/><em>camisetas</em><br/>del mundo</h1>
+    <p>Réplicas oficiales de las ligas más importantes. Calidad premium, con su envío rápido.</p>
+  </section>
+
+  <!-- FILTROS -->
+  <section class="filter-bar">
+    <h2>CATÁLOGO <span id="product-count">0</span> KITS</h2>
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="LaLiga">LaLiga</button>
+      <button class="filter-btn" data-filter="Premier">Premier</button>
+      <button class="filter-btn" data-filter="Serie A">Serie A</button>
+      <button class="filter-btn" data-filter="Bundesliga">Bundesliga</button>
+      <button class="filter-btn" data-filter="Selección">Selección</button>
+    </div>
+  </section>
+
+  <!-- CATÁLOGO -->
+  <main>
+    <div id="catalog"></div>
+  </main>
+
+  <!-- PANEL CARRITO -->
+  <div id="cart-overlay"></div>
+  <aside id="cart-panel" role="dialog" aria-modal="true" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <h3>🛒 Tu Carrito</h3>
+      <button id="close-cart" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <div id="cart-items"></div>
+    <div class="cart-footer">
+      <div class="summary-row"><span>Productos</span><span id="summary-items">0</span></div>
+      <div class="summary-row"><span>Envío</span><span>Gratis 🎉</span></div>
+      <div class="summary-total"><span>Total</span><strong id="cart-total">$0</strong></div>
+      <button class="btn-checkout" id="btn-checkout">Proceder al pago</button>
+      <button class="btn-clear" id="btn-clear">Vaciar carrito</button>
+    </div>
+  </aside>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">SoccerJersey</div>
+    <p>© 2025 SoccerJersey — Todos los derechos reservados</p>
+    <div class="footer-links">
+      <a href="#">Política de privacidad</a>
+      <a href="#">Devoluciones</a>
+      <a href="#">Contacto</a>
+    </div>
+  </footer>
+
+  <div id="toast"></div>
+  
+</body>
+</html>
