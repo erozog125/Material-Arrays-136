@@ -58,4 +58,5 @@ He redistribuido los pesos para priorizar el manejo de datos y la lógica de neg
 - **Comentarios:** Es obligatorio comentar el propósito de cada función (ej: *// Función para actualizar el contador total de la compra*).
 - **Assets:** Las imágenes deben estar descargadas localmente en el proyecto.
 
---- Julián David Flórez Vera
+
+- **Aprendiz:** Julian David Florez Vera
