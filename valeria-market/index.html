@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoShop - Tu Tienda Online</title>
+    <link rel="stylesheet" href="Styles/style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>TecnoShop</h1>
+            <div class="cart-icon">
+                🛒 Carrito: <span id="cart-count">0</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section id="product-list" class="products-grid"></section>
+
+        <aside id="shopping-cart" class="cart-sidebar">
+            <h2>Tu Compra</h2>
+            <div id="cart-content">
+                <ul id="cart-items"></ul>
+                <div class="cart-total">
+                    <p>Total: <strong>$<span id="total-price">0</span></strong></p>
+                    <button id="checkout-btn" class="btn-checkout">Finalizar Compra</button>
+                    <button id="clear-cart" class="btn-clear" onclick="vaciarCarrito()">Vaciar Carrito</button>
+                </div>
+            </div>
+        </aside>
+    </main>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
