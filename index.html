@@ -1,40 +1,587 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Detallitos Harly | Tienda Virtual</title>
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap" 
+    rel="stylesheet"
+  >
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <header><h1>My App</h1></header>
-    <hr>
-    <main>
-        <p>MI primera APP</p>
-        <div class="card">
-            <h2>Card Title1</h2>
-            <p>This is a card component.</p>
-            <a href="market.html">Ir a Market</a>
-        </div>  
-        <div class="card">
-            <h2>Card Title2</h2>
-            <p>This is a card component.</p>
-            <a href="market.html">Ir a Market</a>
-        </div>  
-        <div class="card">
-            <h2>Card Title3</h2>
-            <p>This is a card component.</p>
-            <a href="market.html">Ir a Market</a>
-        </div>  
-    </main>
-    <footer>
-        @2026 My App. All rights reserved.
-    </footer>
-    <script src="arrays.js" type="module"></script>
+
+  <!-- HEADER -->
+  <header class="site-header" id="inicio">
+    <nav class="navbar container">
+      <a href="#inicio" class="logo">
+        <span class="logo-icon">❤</span>
+        <span>Detallitos Harly</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#desayunos">Desayunos</a>
+        <a href="#anchetas">Anchetas</a>
+        <a href="#decoraciones">Decoraciones</a>
+        <a href="#adicionales">Adicionales</a>
+        <a href="#carrito">Carrito</a>
+      </div>
+
+      <a href="#contacto" class="btn btn-primary">Cotizar ahora</a>
+    </nav>
+
+    <section class="hero container">
+      <div class="hero-text">
+        <div class="hero-badge">✨ Detalles, sorpresas y momentos especiales</div>
+
+        <h1>Regalos personalizados para celebrar con amor</h1>
+
+        <p class="hero-description">
+          En Detallitos Harly creamos desayunos sorpresa, anchetas, decoraciones
+          y detalles especiales para cumpleaños, aniversarios, fechas importantes
+          y cualquier ocasión que merezca ser recordada.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#catalogo" class="btn btn-primary">Ver catálogo 🛍️</a>
+          <a href="#contacto" class="btn btn-secondary">Cotizar por WhatsApp 💬</a>
+        </div>
+
+        <div class="hero-info">
+          <span>🎁 Detalles personalizados</span>
+          <span>🎈 Decoración de eventos</span>
+          <span>📍 Servicio a domicilio</span>
+        </div>
+      </div>
+
+      <div class="hero-image-wrapper">
+        <div class="hero-image-bg"></div>
+
+        <div class="hero-image-card">
+          <img src="assets/hero-detallitos.jpg" alt="Detalle especial de Detallitos Harly">
+        </div>
+
+        <div class="hero-mini-card">
+          <span>Para toda ocasión</span>
+          <strong>Personalizado</strong>
+        </div>
+      </div>
+    </section>
+  </header>
+
+  <!-- MAIN -->
+  <main>
+
+    <!-- CATEGORÍAS PRINCIPALES -->
+    <section class="quick-categories">
+      <div class="container category-menu">
+
+        <a href="#desayunos" class="category-link">
+          <span class="category-icon">☕</span>
+          <div>
+            <h3>Desayunos</h3>
+            <p>Cumpleaños, amor, grados y más.</p>
+          </div>
+        </a>
+
+        <a href="#anchetas" class="category-link">
+          <span class="category-icon">🎁</span>
+          <div>
+            <h3>Anchetas</h3>
+            <p>Regalos variados para toda ocasión.</p>
+          </div>
+        </a>
+
+        <a href="#decoraciones" class="category-link">
+          <span class="category-icon">🎈</span>
+          <div>
+            <h3>Decoraciones</h3>
+            <p>Eventos infantiles, adultos y familiares.</p>
+          </div>
+        </a>
+
+        <a href="#adicionales" class="category-link">
+          <span class="category-icon">🌹</span>
+          <div>
+            <h3>Adicionales</h3>
+            <p>Flores, globos, vinos y peluches.</p>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <!-- CATÁLOGO PRINCIPAL -->
+    <section class="section-block" id="catalogo">
+      <div class="container">
+
+        <div class="section-header">
+          <div>
+            <p class="section-label">Catálogo virtual</p>
+            <h2 class="section-title">Productos destacados</h2>
+          </div>
+
+          <p class="section-text">
+            Esta sección queda lista para que mañana con JavaScript los productos
+            puedan venir desde un arreglo de objetos y se puedan agregar al carrito.
+          </p>
+        </div>
+
+        <div class="cards-grid" id="productos-container">
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-cumpleanos.jpg" alt="Desayuno sorpresa de cumpleaños">
+              <span class="tag">Desayuno</span>
+            </div>
+
+            <div class="product-body">
+              <h3>Desayuno de cumpleaños</h3>
+              <span class="product-price">$75.000</span>
+              <p>Detalle personalizado con desayuno, decoración, tarjeta y globo.</p>
+              <button class="add-cart-btn" type="button">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/ancheta-cumpleanos.jpg" alt="Ancheta de cumpleaños">
+              <span class="tag">Ancheta</span>
+            </div>
+
+            <div class="product-body">
+              <h3>Ancheta de cumpleaños</h3>
+              <span class="product-price">$90.000</span>
+              <p>Ancheta variada con dulces, productos favoritos y decoración especial.</p>
+              <button class="add-cart-btn" type="button">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/decoracion-ninos.jpg" alt="Decoración infantil">
+              <span class="tag">Decoración</span>
+            </div>
+
+            <div class="product-body">
+              <h3>Decoración infantil</h3>
+              <span class="product-price">$120.000</span>
+              <p>Montaje decorativo para cumpleaños de niños con temática personalizada.</p>
+              <button class="add-cart-btn" type="button">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/ramo-flores.jpg" alt="Ramo de flores">
+              <span class="tag">Adicional</span>
+            </div>
+
+            <div class="product-body">
+              <h3>Ramo de flores</h3>
+              <span class="product-price">$45.000</span>
+              <p>Complemento ideal para hacer más especial cualquier detalle.</p>
+              <button class="add-cart-btn" type="button">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-aniversario.jpg" alt="Desayuno de aniversario">
+              <span class="tag">Desayuno</span>
+            </div>
+
+            <div class="product-body">
+              <h3>Desayuno de aniversario</h3>
+              <span class="product-price">$85.000</span>
+              <p>Desayuno romántico con mensaje personalizado y decoración especial.</p>
+              <button class="add-cart-btn" type="button">Agregar al carrito</button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/globos-cristal.jpg" alt="Globos en cristal">
+              <span class="tag">Adicional</span>
+            </div>
+
+            <div class="product-body">
+              <h3>Globo en cristal</h3>
+              <span class="product-price">$35.000</span>
+              <p>Globo decorativo personalizado para acompañar cualquier sorpresa.</p>
+              <button class="add-cart-btn" type="button">Agregar al carrito</button>
+            </div>
+          </article>
+
+        </div>
+
+        <!-- CARRITO VISUAL -->
+        <aside class="cart-preview" id="carrito">
+          <div>
+            <h3>Vista del carrito</h3>
+            <p>
+              Esta caja está preparada para que con JavaScript se muestren los productos
+              agregados, cantidades, eliminación de productos y total de la compra.
+            </p>
+          </div>
+
+          <div class="cart-total">
+            <span>Total actual</span>
+            <strong id="total-carrito">$0</strong>
+          </div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- DESAYUNOS -->
+    <section class="section-block white" id="desayunos">
+      <div class="container">
+
+        <div class="section-header">
+          <div>
+            <p class="section-label">Desayunos sorpresa</p>
+            <h2 class="section-title">Desayunos para cada momento especial</h2>
+          </div>
+
+          <p class="section-text">
+            Cada desayuno puede personalizarse con mensaje, colores, decoración,
+            productos favoritos y detalles según la ocasión.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-cumpleanos.jpg" alt="Desayuno sorpresa de cumpleaños">
+              <span class="tag">Cumpleaños</span>
+            </div>
+            <div class="product-body">
+              <h3>Cumpleaños</h3>
+              <p>Desayunos alegres con globos, tarjeta, dulces y decoración especial.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-madre.jpg" alt="Desayuno día de la madre">
+              <span class="tag">Día de la madre</span>
+            </div>
+            <div class="product-body">
+              <h3>Día de la madre</h3>
+              <p>Detalles tiernos y elegantes para celebrar a mamá con mucho amor.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-padre.jpg" alt="Desayuno día del padre">
+              <span class="tag">Día del padre</span>
+            </div>
+            <div class="product-body">
+              <h3>Día del padre</h3>
+              <p>Opciones especiales para sorprender a papá con un regalo diferente.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-san-valentin.jpg" alt="Desayuno San Valentín">
+              <span class="tag">San Valentín</span>
+            </div>
+            <div class="product-body">
+              <h3>San Valentín</h3>
+              <p>Desayunos románticos con tonos rojos, corazones y mensajes especiales.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-aniversario.jpg" alt="Desayuno de aniversario">
+              <span class="tag">Aniversarios</span>
+            </div>
+            <div class="product-body">
+              <h3>Aniversarios</h3>
+              <p>Detalles personalizados para celebrar historias, fechas y momentos juntos.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-amor-amistad.jpg" alt="Desayuno amor y amistad">
+              <span class="tag">Amor y amistad</span>
+            </div>
+            <div class="product-body">
+              <h3>Amor y amistad</h3>
+              <p>Una forma linda de agradecer, celebrar y sorprender a alguien especial.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-grados.jpg" alt="Desayuno de grados">
+              <span class="tag">Grados</span>
+            </div>
+            <div class="product-body">
+              <h3>Grados</h3>
+              <p>Detalles para felicitar logros académicos y nuevas etapas.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/desayuno-quinceanos.jpg" alt="Desayuno de quince años">
+              <span class="tag">Quinceaños</span>
+            </div>
+            <div class="product-body">
+              <h3>Quinceaños</h3>
+              <p>Desayunos delicados y especiales para una fecha inolvidable.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ANCHETAS -->
+    <section class="section-block" id="anchetas">
+      <div class="container">
+
+        <div class="section-header">
+          <div>
+            <p class="section-label">Anchetas personalizadas</p>
+            <h2 class="section-title">Anchetas llenas de variedad y cariño</h2>
+          </div>
+
+          <p class="section-text">
+            Armamos anchetas con productos variados, decoración y estilo según
+            la fecha o la persona que quieres sorprender.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/ancheta-cualquier-ocasion.jpg" alt="Ancheta para cualquier ocasión">
+              <span class="tag">Variedad</span>
+            </div>
+            <div class="product-body">
+              <h3>Para cualquier ocasión</h3>
+              <p>Anchetas personalizadas para agradecer, felicitar o simplemente sorprender.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/ancheta-navidad.jpg" alt="Ancheta de Navidad">
+              <span class="tag">Navidad</span>
+            </div>
+            <div class="product-body">
+              <h3>Navidad</h3>
+              <p>Detalles navideños con productos especiales y colores festivos.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/ancheta-aniversario.jpg" alt="Ancheta de aniversario">
+              <span class="tag">Aniversario</span>
+            </div>
+            <div class="product-body">
+              <h3>Aniversario</h3>
+              <p>Una ancheta romántica y elegante para celebrar una fecha importante.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/ancheta-padre.jpg" alt="Ancheta día del padre">
+              <span class="tag">Día del padre</span>
+            </div>
+            <div class="product-body">
+              <h3>Día del padre</h3>
+              <p>Anchetas pensadas para papá, con productos variados y presentación especial.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- DECORACIONES -->
+    <section class="section-block white" id="decoraciones">
+      <div class="container">
+
+        <div class="section-header">
+          <div>
+            <p class="section-label">Decoraciones</p>
+            <h2 class="section-title">Decoramos tus celebraciones</h2>
+          </div>
+
+          <p class="section-text">
+            Creamos ambientes bonitos para cumpleaños, comuniones y eventos especiales,
+            adaptándonos al estilo, colores y temática que necesites.
+          </p>
+        </div>
+
+        <div class="wide-grid">
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/decoracion-ninos.jpg" alt="Decoración cumpleaños niños">
+              <span class="tag">Infantil</span>
+            </div>
+            <div class="product-body">
+              <h3>Cumpleaños niños</h3>
+              <p>Decoraciones coloridas, temáticas y llenas de alegría para celebraciones infantiles.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/decoracion-adultos.jpg" alt="Decoración cumpleaños adultos">
+              <span class="tag">Adultos</span>
+            </div>
+            <div class="product-body">
+              <h3>Cumpleaños adultos</h3>
+              <p>Montajes elegantes o divertidos según el estilo de la celebración.</p>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="assets/decoracion-comunion.jpg" alt="Decoración primera comunión">
+              <span class="tag">Primera comunión</span>
+            </div>
+            <div class="product-body">
+              <h3>Primeras comuniones</h3>
+              <p>Decoraciones delicadas para una celebración familiar y significativa.</p>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ADICIONALES -->
+    <section class="section-block" id="adicionales">
+      <div class="container additionals-layout">
+
+        <div class="additionals-box">
+          <p class="section-label">Adicionales</p>
+          <h2 class="section-title">Complementa tu detalle</h2>
+          <p class="section-text">
+            Puedes agregar productos extra para hacer tu regalo más completo,
+            especial y personalizado.
+          </p>
+        </div>
+
+        <div class="additionals-list">
+          <div class="additional-item"><span>🧀</span>Charcutería o tabla de quesos</div>
+          <div class="additional-item"><span>🍷</span>Vinos grandes y pequeños</div>
+          <div class="additional-item"><span>🍫</span>Domos variados</div>
+          <div class="additional-item"><span>🌹</span>Ramo de flores</div>
+          <div class="additional-item"><span>🍓</span>Parfait</div>
+          <div class="additional-item"><span>🥪</span>Sandwichs de pollo</div>
+          <div class="additional-item"><span>☕</span>Pocillo</div>
+          <div class="additional-item"><span>🎈</span>Globos en helio</div>
+          <div class="additional-item"><span>🫧</span>Globos en cristal</div>
+          <div class="additional-item"><span>🖼️</span>Foto retrato</div>
+          <div class="additional-item"><span>🌵</span>Suculentas</div>
+          <div class="additional-item"><span>🧸</span>Peluches</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="section-block white" id="proceso">
+      <div class="container">
+
+        <div class="section-header">
+          <div>
+            <p class="section-label">Proceso fácil</p>
+            <h2 class="section-title">Así hacemos realidad tu sorpresa</h2>
+          </div>
+        </div>
+
+        <div class="steps-grid">
+
+          <article class="step-card">
+            <div class="step-icon">💬</div>
+            <h3>Nos cuentas tu idea</h3>
+            <p>Nos dices la ocasión, fecha, estilo y tipo de detalle que quieres regalar.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-icon">🎨</div>
+            <h3>Personalizamos el detalle</h3>
+            <p>Definimos colores, productos, mensaje, decoración y adicionales.</p>
+          </article>
+
+          <article class="step-card">
+            <div class="step-icon">✨</div>
+            <h3>Entregamos la sorpresa</h3>
+            <p>Preparamos todo con amor y cuidamos cada detalle para que sea especial.</p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section class="cta" id="contacto">
+      <div class="container cta-content">
+
+        <div>
+          <p class="section-label">Haz tu pedido</p>
+          <h2 class="section-title">
+            Celebra con un detalle único, bonito y hecho especialmente para esa persona.
+          </h2>
+        </div>
+
+        <div class="contact-card">
+          <h3>Agenda por WhatsApp</h3>
+          <p>
+            Escríbenos para cotizar desayunos, anchetas, decoraciones o adicionales.
+            Te ayudamos a armar la sorpresa según la ocasión.
+          </p>
+          <a href="https://wa.me/573000000000" class="btn btn-primary">Contactar ahora 💬</a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Detallitos Harly. Desayunos, anchetas y decoraciones.</p>
+
+      <div class="footer-links">
+        <a href="#">Instagram</a>
+        <a href="#">TikTok</a>
+        <a href="#">WhatsApp</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript para mañana -->
+  <script src="market.js" defer></script>
+  <script src="shoppingcard.js" defer></script>
+
 </body>
 </html>
-
-
-
-
-
