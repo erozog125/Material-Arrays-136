@@ -2,13 +2,13 @@
 const productos = [
     {
         id: 1,
-        nombre: "Aud铆fonos RGB",
+        nombre: "Audifonos RGB",
         precio: 180000,
         imagen: "assets/img/audifonos.jpg"
     },
     {
         id: 2,
-        nombre: "Teclado Mec谩nico",
+        nombre: "Teclado Mecanico",
         precio: 250000,
         imagen: "assets/img/teclado.jpg"
     },
@@ -47,7 +47,7 @@ const contenedorCarrito = document.getElementById("carrito");
 const total = document.getElementById("total");
 const buscador = document.getElementById("buscador");
 
-// Funci贸n para renderizar productos
+// Funcion para renderizar productos
 const renderizarProductos = (productosAMostrar = productos) => {
 
     // Limpiar contenedor
@@ -91,7 +91,7 @@ const renderizarProductos = (productosAMostrar = productos) => {
         `;
     }
 };
-// Funci贸n para agregar productos al carrito
+// Funcion para agregar productos al carrito
 const agregarAlCarrito = (id) => {
 
     // Buscar si el producto ya existe
@@ -118,7 +118,7 @@ const agregarAlCarrito = (id) => {
     renderizarCarrito();
 };
 
-// Funci贸n para renderizar carrito
+// Funcion para renderizar carrito
 const renderizarCarrito = () => {
 
     // Limpiar carrito
@@ -151,3 +151,50 @@ const renderizarCarrito = () => {
 
     calcularTotal();
 };
+
+// Funcion para eliminar productos del carrito
+const eliminarProducto = (id) => {
+
+    carrito = carrito.filter(producto => producto.id !== id);
+
+    guardarLocalStorage();
+    renderizarCarrito();
+};
+
+// Funcion para calcular total
+const calcularTotal = () => {
+
+    const totalCompra = carrito.reduce((acumulador, producto) => {
+
+        return acumulador + (producto.precio * producto.cantidad);
+
+    }, 0);
+
+    total.textContent = totalCompra;
+};
+
+// Funcion para guardar datos en localStorage
+const guardarLocalStorage = () => {
+
+    localStorage.setItem("carrito", JSON.stringify(carrito));
+};
+
+// Evento buscador
+buscador.addEventListener("input", () => {
+
+    // Obtener texto escrito
+    const texto = buscador.value.toLowerCase();
+
+    // Filtrar productos
+    const productosFiltrados = productos.filter(producto =>
+        producto.nombre.toLowerCase().includes(texto)
+    );
+
+    // Mostrar productos filtrados
+    renderizarProductos(productosFiltrados);
+
+});
+
+// Ejecutar funciones
+renderizarProductos();
+renderizarCarrito();
