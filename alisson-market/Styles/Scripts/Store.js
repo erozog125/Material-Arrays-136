@@ -80,7 +80,20 @@ const renderCart = () => {
     totalDisplay.textContent = total.toFixed(2);
 };
 
+// Guarda los datos en LocalStorage y refresca la interfaz del carrito
+const saveAndRefresh = () => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    renderCart();
+};
 
+// Recupera los datos guardados en LocalStorage al iniciar
+const loadCart = () => {
+    const storedCart = localStorage.getItem('cart');
+    if (storedCart) {
+        cart = JSON.parse(storedCart);
+        renderCart();
+    }
+};
 
 // Inicializa la tienda y carga el carrito al cargar el DOM
 window.addEventListener('DOMContentLoaded', () => {
