@@ -29,8 +29,7 @@ body {
 
 .app-container {
     display: grid;
-    grid-template-columns: 180px 1fr; /* Un poco más de espacio al carrito */
-    gap: 25px;
+    grid-template-columns: 180px 1fr; 
     padding: 20px;
 }
 
@@ -56,7 +55,6 @@ body {
     gap: 30px;
 }
 
-/* Esta es la clase que le pondrás a tus <article> creados por JS */
 .vynil-item {
     background: var(--card);
     padding: 15px;
