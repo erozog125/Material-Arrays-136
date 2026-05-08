@@ -111,10 +111,22 @@ priceSelect.addEventListener("change", filtrarProductos);
 
 // Clase Carrito de Compras
 class Carrito {
-  constructor() {
-    this.items = [];
-    this.initEventListeners();
-  }
+constructor() {
+  this.items = this.cargarDeStorage();
+  this.initEventListeners();
+  this.actualizarDOM();
+}
+
+// Guardar en localStorage
+guardarEnStorage() {
+  localStorage.setItem("carritoEsenciaAndina", JSON.stringify(this.items));
+}
+
+// Cargar desde localStorage
+cargarDeStorage() {
+  const datos = localStorage.getItem("carritoEsenciaAndina");
+  return datos ? JSON.parse(datos) : [];
+}
 
   // Agregar producto o aumentar cantidad
   agregarProducto(producto) {
@@ -124,13 +136,15 @@ class Carrito {
     } else {
       this.items.push({ ...producto, cantidad: 1 });
     }
-    this.actualizarDOM();
+      this.guardarEnStorage();
+      this.actualizarDOM();
   }
 
   // Eliminar producto por id
   eliminarProducto(id) {
     this.items = this.items.filter(item => item.id !== id);
-    this.actualizarDOM();
+      this.guardarEnStorage();
+      this.actualizarDOM();
   }
 
   // Actualizar cantidad (aumentar/disminuir)
@@ -143,7 +157,8 @@ class Carrito {
         return;
       }
     }
-    this.actualizarDOM();
+      this.guardarEnStorage();
+      this.actualizarDOM();
   }
 
   // Calcular total
@@ -186,8 +201,10 @@ class Carrito {
     `).join("");
 
     const subtotal = this.calcularTotal();
-    subtotalSpan.textContent = `$${subtotal}`;
-    totalSpan.textContent = `$${subtotal + 0}`;
+    const envio = subtotal > 50 ? 0 : 12;
+    document.getElementById("cart-subtotal").textContent = `$${subtotal}`;
+    document.getElementById("cart-shipping").textContent = `$${envio}`;
+    document.getElementById("cart-total").textContent = `$${subtotal + envio}`;
   }
 
   // Configurar event listeners delegados
