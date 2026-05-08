@@ -57,12 +57,34 @@ const productosDestacados = [
   }
 ];
 
-// Esta función convierte un número en formato de pesos colombianos.
-// Ejemplo: 35000 se muestra como $35.000
+// Esta función da formato al precio, lo pasa de numero normal a pesos. asi que si hay un 35000 se muestra como $35.000
 function formatearPrecio(precio) {
-  return precio.toLocaleString("es-CO", {
-    style: "currency",
-    currency: "COP",
-    maximumFractionDigits: 0
-  });
+  return "$" + precio.toLocaleString("es-CO");
+}
+
+// Esta función crea una tarjeta de producto.
+function crearTarjetaProducto(producto) {
+  const tarjeta = document.createElement("article");
+  tarjeta.className = "featured-addon-card";
+
+  const imagen = document.createElement("img");
+  imagen.src = producto.imagen;
+  imagen.alt = producto.nombre;
+
+  const contenido = document.createElement("div");
+
+  const titulo = document.createElement("h3");
+  titulo.textContent = producto.nombre;
+
+  const descripcion = document.createElement("p");
+  descripcion.textContent = producto.descripcion;
+
+  const precio = document.createElement("span");
+  precio.textContent = formatearPrecio(producto.precio);
+
+  const boton = document.createElement("button");
+  boton.type = "button";
+  boton.className = "addon-add-btn";
+  boton.textContent = "Agregar a mi pedido";
+
 }
