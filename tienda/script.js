@@ -1,14 +1,14 @@
 const productos = [
-    { id: 1,  nombre: "Nike Mercurial Vapor",  precio: 160, categoria: "futbol",      tag: "nuevo",   imagen: "img/" },
-    { id: 2,  nombre: "Adidas Predator",       precio: 280, categoria: "futbol",      tag: "top",     imagen: "assets/predator.jpg" },
-    { id: 3,  nombre: "Nike Air Zoom Pegasus", precio: 140, categoria: "running",     tag: "clasico", imagen: "assets/pegasus.jpg" },
-    { id: 4,  nombre: "Hoka Clifton",          precio: 150, categoria: "running",     tag: "top",     imagen: "assets/clifton.jpg" },
-    { id: 5,  nombre: "Brooks Ghost",          precio: 150, categoria: "running",     tag: "clasico", imagen: "assets/ghost.jpg" },
-    { id: 6,  nombre: "Under Armour Curry",    precio: 160, categoria: "baloncesto",  tag: "nuevo",   imagen: "assets/curry.jpg" },
-    { id: 7,  nombre: "Adidas Dame",           precio: 120, categoria: "baloncesto",  tag: "oferta",  imagen: "assets/dame.jpg" },
-    { id: 8,  nombre: "Asics Sky Elite",       precio: 200, categoria: "voleibol",    tag: "top",     imagen: "assets/sky-elite.jpg" },
-    { id: 9,  nombre: "Asics Sky Elite",       precio: 200, categoria: "voleibol",    tag: "nuevo",   imagen: "assets/sky-elite-2.jpg" },
-    { id: 10, nombre: "Adidas Ultraboost",     precio: 190, categoria: "running",     tag: "oferta",  imagen: "assets/ultraboost.jpg" },
+    { id: 1,  nombre: "Nike Mercurial Vapor",  precio: 160, categoria: "futbol",      tag: "nuevo",   imagen: "img/MVapor.webp" },
+    { id: 2,  nombre: "Adidas Predator",       precio: 280, categoria: "futbol",      tag: "top",     imagen: "img/Predator.avif" },
+    { id: 3,  nombre: "Nike Air Zoom Pegasus", precio: 140, categoria: "running",     tag: "clasico", imagen: "img/Pegasus.webp" },
+    { id: 4,  nombre: "Hoka Clifton",          precio: 150, categoria: "running",     tag: "top",     imagen: "img/Hoka.webp" },
+    { id: 5,  nombre: "Brooks Ghost",          precio: 150, categoria: "running",     tag: "clasico", imagen: "img/Ghost.webp" },
+    { id: 6,  nombre: "Under Armour Curry",    precio: 160, categoria: "baloncesto",  tag: "nuevo",   imagen: "img/curry.png" },
+    { id: 7,  nombre: "Adidas Dame",           precio: 120, categoria: "baloncesto",  tag: "oferta",  imagen: "img/dame.avif" },
+    { id: 8,  nombre: "Asics Sky Elite",       precio: 200, categoria: "voleibol",    tag: "top",     imagen: "img/sky.jpg" },
+    { id: 9,  nombre: "Asics Sky Elite",       precio: 200, categoria: "voleibol",    tag: "nuevo",   imagen: "img/sky2.jpg" },
+    { id: 10, nombre: "Adidas Ultraboost",     precio: 190, categoria: "running",     tag: "oferta",  imagen: "img/ultraboost.avif" },
 ];
 
 const COSTO_ENVIO = 24;
