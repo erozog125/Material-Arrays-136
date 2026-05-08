@@ -108,3 +108,110 @@ const filtrarProductos = () => {
 searchInput.addEventListener("input", filtrarProductos);
 categorySelect.addEventListener("change", filtrarProductos);
 priceSelect.addEventListener("change", filtrarProductos);
+
+// Clase Carrito de Compras
+class Carrito {
+  constructor() {
+    this.items = [];
+    this.initEventListeners();
+  }
+
+  // Agregar producto o aumentar cantidad
+  agregarProducto(producto) {
+    const existente = this.items.find(item => item.id === producto.id);
+    if (existente) {
+      existente.cantidad += 1;
+    } else {
+      this.items.push({ ...producto, cantidad: 1 });
+    }
+    this.actualizarDOM();
+  }
+
+  // Eliminar producto por id
+  eliminarProducto(id) {
+    this.items = this.items.filter(item => item.id !== id);
+    this.actualizarDOM();
+  }
+
+  // Actualizar cantidad (aumentar/disminuir)
+  cambiarCantidad(id, delta) {
+    const item = this.items.find(item => item.id === id);
+    if (item) {
+      item.cantidad += delta;
+      if (item.cantidad <= 0) {
+        this.eliminarProducto(id);
+        return;
+      }
+    }
+    this.actualizarDOM();
+  }
+
+  // Calcular total
+  calcularTotal() {
+    return this.items.reduce((total, item) => total + item.precio * item.cantidad, 0);
+  }
+
+  // Renderizar carrito en el DOM
+  actualizarDOM() {
+    const cartList = document.getElementById("cart-list");
+    const cartCount = document.querySelector(".cart-count");
+    const subtotalSpan = document.getElementById("cart-subtotal");
+    const totalSpan = document.getElementById("cart-total");
+
+    cartCount.textContent = this.items.length;
+
+    if (this.items.length === 0) {
+      cartList.innerHTML = '<div class="empty-cart">Tu carrito está vacío</div>';
+      subtotalSpan.textContent = "$0";
+      totalSpan.textContent = "$0";
+      return;
+    }
+
+    cartList.innerHTML = this.items.map(({ id, nombre, precio, cantidad, imagen }) => `
+      <div class="cart-item">
+        <div class="cart-emoji"><img src="${imagen}" alt="${nombre}" style="width:100%;height:100%;object-fit:cover;border-radius:12px" /></div>
+        <div class="cart-info">
+          <h4>${nombre}</h4>
+          <p>$${precio} x ${cantidad}</p>
+        </div>
+        <div class="qty-row">
+          <div class="qty-controls">
+            <button class="qty-btn" data-action="decrease" data-id="${id}">-</button>
+            <strong>${cantidad}</strong>
+            <button class="qty-btn" data-action="increase" data-id="${id}">+</button>
+          </div>
+          <button class="remove-btn" data-action="remove" data-id="${id}">Eliminar</button>
+        </div>
+      </div>
+    `).join("");
+
+    const subtotal = this.calcularTotal();
+    subtotalSpan.textContent = `$${subtotal}`;
+    totalSpan.textContent = `$${subtotal + 0}`;
+  }
+
+  // Configurar event listeners delegados
+  initEventListeners() {
+    document.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+
+      // Si es un botón de agregar desde el catálogo
+      if (btn.classList.contains("add-btn")) {
+        const id = parseInt(btn.dataset.id);
+        const producto = productos.find(p => p.id === id);
+        if (producto) this.agregarProducto(producto);
+      }
+
+      // Si es un botón dentro del carrito
+      const action = btn.dataset.action;
+      const id = parseInt(btn.dataset.id);
+      if (action === "increase") this.cambiarCantidad(id, 1);
+      if (action === "decrease") this.cambiarCantidad(id, -1);
+      if (action === "remove") this.eliminarProducto(id);
+    });
+  }
+}
+
+// Instanciar el carrito
+const carrito = new Carrito();
