@@ -119,7 +119,7 @@ body {
     margin-bottom: 1.5rem;
 }
 
-.catalog__grid {
+.catalog__flex {
     display: flex;
     flex-wrap: wrap;
     gap: 1.5rem;
