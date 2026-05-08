@@ -74,10 +74,34 @@
   </div>
 
   <div class="products" id="products-container">
-    <!-- Se llenará dinámicamente con JS (ahora estático para visualización) -->
   </div>
 </section>
 </main>
+
+<aside id="carrito" class="cart" aria-label="Carrito de compras">
+  <div class="cart-header">
+    <h2>Tu carrito</h2>
+    <span class="cart-count">0</span>
+  </div>
+  <div class="cart-list" id="cart-list">
+    <div class="empty-cart">Tu carrito está vacío</div>
+  </div>
+  <div class="cart-total">
+    <div class="line">
+      <span>Subtotal</span>
+      <span id="cart-subtotal">$0</span>
+    </div>
+    <div class="line">
+      <span>Envío</span>
+      <span id="cart-shipping">$0</span>
+    </div>
+    <div class="grand">
+      <span>Total</span>
+      <span id="cart-total">$0</span>
+    </div>
+    <button class="checkout-btn" id="checkout-btn">Finalizar compra</button>
+  </div>
+</aside>
 
 <footer id="contacto">
   <p>© 2026 Esencia Andina. Extractos premium para perfumería artesanal.</p>
