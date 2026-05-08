@@ -139,3 +139,48 @@ function agregarAlCarrito(id) {
   renderizarCatalogo(filtroActivo);
 }
 
+/* ============================================================
+   FUNCIÓN: cambiarCantidad
+   Aumenta o disminuye la cantidad de un item en el carrito.
+   Si la cantidad llega a 0, elimina el producto del carrito.
+============================================================ */
+function cambiarCantidad(id, delta) {
+  const item = carrito.find(i => i.id === id);
+  if (!item) return;
+  item.cantidad += delta;
+  if (item.cantidad <= 0) { eliminarDelCarrito(id); return; }
+  guardarCarrito();
+  renderizarCarrito();
+  actualizarContadorHeader();
+  renderizarCatalogo(filtroActivo);
+}
+
+/* ============================================================
+   FUNCIÓN: eliminarDelCarrito
+   Quita completamente un producto del carrito usando filter().
+============================================================ */
+function eliminarDelCarrito(id) {
+  carrito = carrito.filter(item => item.id !== id);
+  guardarCarrito();
+  renderizarCarrito();
+  actualizarContadorHeader();
+  renderizarCatalogo(filtroActivo);
+}
+
+/* ============================================================
+   FUNCIÓN: calcularTotal
+   Suma el precio × cantidad de cada producto del carrito.
+   Retorna el costo total de la compra.
+============================================================ */
+function calcularTotal() {
+  return carrito.reduce((acc, item) => acc + item.precio * item.cantidad, 0);
+}
+
+/* ============================================================
+   FUNCIÓN: calcularTotalItems
+   Suma el total de unidades (no productos únicos) en el carrito.
+============================================================ */
+function calcularTotalItems() {
+  return carrito.reduce((acc, item) => acc + item.cantidad, 0);
+}
+
