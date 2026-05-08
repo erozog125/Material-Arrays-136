@@ -89,3 +89,40 @@ h1, h2, h3, h4 { font-family: var(--font-heading); }
 .time-block span { font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; color: var(--accent); line-height: 1; }
 .time-block small { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; margin-top: 2px; }
 .separator { font-size: 1.5rem; font-weight: 800; color: var(--accent); align-self: flex-start; opacity: 0.5; }
+
+.dashboard { display: flex; gap: 2rem; padding: 3rem 5%; max-width: 1600px; margin: 0 auto; align-items: flex-start; }
+.catalog-section { flex: 1; }
+.section-title { font-size: 2rem; margin-bottom: 2rem; position: relative; display: inline-block; }
+.section-title::after {
+    content: ''; position: absolute; left: 0; bottom: -5px;
+    width: 50%; height: 3px;
+    background-color: var(--accent); box-shadow: 0 0 10px var(--accent);
+}
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem; margin-bottom: 4rem;
+}
+.product-card {
+    background: linear-gradient(145deg, #111a2e, #0a0f1d);
+    border: 1px solid var(--border-color); border-radius: 12px;
+    overflow: hidden; transition: all 0.4s cubic-bezier(0.175,0.885,0.32,1.275);
+    display: flex; flex-direction: column; height: 100%;
+    box-shadow: 10px 10px 20px rgba(0,0,0,0.4);
+}
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.6), var(--shadow-glow); border-color: var(--accent); }
+.product-card img { width: 100%; height: 220px; object-fit: contain; background-color: rgba(0,0,0,0.3); padding: 15px; border-bottom: 1px solid var(--border-color); transition: transform 0.5s ease; }
+.product-card:hover img { transform: scale(1.08); }
+.card-body { padding: 1.5rem; display: flex; flex-direction: column; flex-grow: 1; }
+.card-body h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 0.2rem; }
+.brand { font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1rem; }
+.price { font-size: 1.5rem; font-weight: 700; margin-bottom: 1.5rem; margin-top: auto; }
+.btn-add {
+    width: 100%; padding: 0.8rem;
+    background-color: transparent; color: white;
+    border: 1px solid var(--accent); border-radius: 6px;
+    font-family: var(--font-heading); font-weight: 600;
+    cursor: pointer; transition: all 0.3s;
+    text-transform: uppercase; font-size: 0.85rem;
+}
+.btn-add:hover { background-color: var(--accent); box-shadow: 0 0 15px rgba(255,0,60,0.4); }
