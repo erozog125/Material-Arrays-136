@@ -27,6 +27,50 @@ const productos = [
 
 // Selector del contenedor del grid
 const productGrid = document.querySelector('#product-list');
+// ============================================================
+// SELECTORES DEL DOM — carrito y botones de acción
+// ============================================================
+const cartBadge        = document.querySelector('#cart-count');
+const cartItemsWrapper = document.querySelector('#cart-items');
+const cartTotalDisplay = document.querySelector('#cart-total');
+const btnEmptyCart     = document.querySelector('#btn-empty');
+const btnBuy           = document.querySelector('#btn-buy');
+const cartTrigger      = document.querySelector('.cart-trigger');
+const cartSidebar      = document.querySelector('.cart-sidebar');
+
+// Arreglo que almacena los productos del carrito (vacío por ahora)
+let carrito = [];
+
+// ============================================================
+// EVENTO: Abrir / cerrar el sidebar del carrito en móvil
+// ============================================================
+cartTrigger.addEventListener('click', () => {
+    cartSidebar.classList.toggle('cart-visible');
+    cartTrigger.classList.toggle('activo');
+});
+
+// ============================================================
+// EVENTO: Agregar producto al carrito (delegación de eventos)
+// Si el producto ya existe, incrementa su cantidad (no duplica)
+// Si no existe, lo agrega como nuevo objeto con cantidad: 1
+// ============================================================
+productGrid.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('add-to-cart')) return;
+
+    const id = parseInt(event.target.getAttribute('data-id'));
+    const productoBase = productos.find(p => p.id === id);
+    const itemExistente = carrito.find(item => item.id === id);
+
+    if (itemExistente) {
+        // Si ya existe → solo incrementar la cantidad
+        itemExistente.cantidad++;
+    } else {
+        // Si no existe → agregar con cantidad 1
+        carrito.push({ ...productoBase, cantidad: 1 });
+    }
+
+    actualizarCarritoDOM();
+});
 
 // ============================================================
 // FUNCIÓN: Renderizar las cards desde el array de productos
