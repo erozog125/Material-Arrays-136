@@ -8,8 +8,8 @@ const productos = [
     { id: 6, nombre: "Pollo Frito Crujiente", precio: 15000, imagen: "assets/Pollo_frito_crujiente.png" },
 ]
 
-// Arreglo del carrito (inicia vacío)
-let carrito = []
+// Recuperar el carrito del localStorage al cargar la página
+let carrito = JSON.parse(localStorage.getItem('carrito')) || []
 
 // Función para renderizar las cards de productos en el DOM
 const renderizarProductos = () => {
@@ -34,9 +34,6 @@ const renderizarProductos = () => {
     })
 }
 
-// Llamar la función al cargar la página
-renderizarProductos()
-
 // Función para agregar un producto al carrito
 const agregarAlCarrito = (id) => {
     const productoExistente = carrito.find(item => item.id === id)
@@ -51,6 +48,7 @@ const agregarAlCarrito = (id) => {
     }
 
     actualizarCarrito()
+    guardarCarrito()
 }
 
 // Función para actualizar el carrito en el DOM
@@ -104,6 +102,11 @@ const actualizarContador = () => {
     document.querySelector('#cart-count').textContent = totalItems
 }
 
+// Función para guardar el carrito en el localStorage
+const guardarCarrito = () => {
+    localStorage.setItem('carrito', JSON.stringify(carrito))
+}
+
 // Función para aumentar o disminuir la cantidad de un producto en el carrito
 const cambiarCantidad = (id, cambio) => {
     const producto = carrito.find(item => item.id === id)
@@ -117,12 +120,14 @@ const cambiarCantidad = (id, cambio) => {
     }
 
     actualizarCarrito()
+    guardarCarrito()
 }
 
 // Función para eliminar un producto del carrito
 const eliminarDelCarrito = (id) => {
     carrito = carrito.filter(item => item.id !== id)
     actualizarCarrito()
+    guardarCarrito()
 }
 
 // Referencias a los elementos del carrito
@@ -148,3 +153,7 @@ const cerrarCarrito = () => {
 cartToggle.addEventListener('click', abrirCarrito)
 cartClose.addEventListener('click', cerrarCarrito)
 overlay.addEventListener('click', cerrarCarrito)
+
+// Llama las funciones al cargar la página
+renderizarProductos()
+actualizarCarrito()
