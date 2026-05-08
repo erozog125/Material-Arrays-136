@@ -56,3 +56,13 @@ const productosDestacados = [
     descripcion: "Una opción fresca y dulce para complementar el desayuno sorpresa."
   }
 ];
+
+// Esta función convierte un número en formato de pesos colombianos.
+// Ejemplo: 35000 se muestra como $35.000
+function formatearPrecio(precio) {
+  return precio.toLocaleString("es-CO", {
+    style: "currency",
+    currency: "COP",
+    maximumFractionDigits: 0
+  });
+}
