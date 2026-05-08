@@ -117,3 +117,12 @@ function mostrarProductosDestacados() {
     contenedor.appendChild(tarjetaProducto);
   });
 }
+
+// Cuando la página cargue, mostramos los productos.
+document.addEventListener("DOMContentLoaded", function() {
+  mostrarProductosDestacados();
+});
+
+
+// Dejamos el arreglo disponible para usarlo luego en el carrito.
+window.productosDestacados = productosDestacados;
