@@ -6,7 +6,7 @@
 const productos = [
     {
         id: 1,
-        nombre: "PlayStation 2",
+        name: "PlayStation 2",
         precio: 450000,
         imagen: "assets/ps2.jpg",
         descripcion: "La consola más legendaria de Sony"
