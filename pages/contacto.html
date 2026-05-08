@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | Esencia Andina</title>
+  <link rel="stylesheet" href="../styles/style.css" />
+</head>
+<body>
+  
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <span>Esencia Andina</span>
+    </div>
+
+    <nav aria-label="Navegación principal">
+      <a href="../index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="../index.html#carrito">Carrito</a>
+      <a class="active" href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  
+  <main>
+    <section class="contact-section" style="max-width: 600px; margin: 40px auto; padding: 0 16px;">
+      <div style="background: var(--card); border-radius: 28px; padding: 32px; box-shadow: 12px 12px 28px var(--shadow-dark), -12px -12px 28px var(--shadow-light);">
+        <h2 style="font-size: 2rem; margin-bottom: 8px; letter-spacing: -1px;">Contáctanos</h2>
+        <p style="color: var(--muted); margin-bottom: 24px; font-weight: 700;">Estamos aquí para ayudarte con tus pedidos y consultas.</p>
+
+        <form id="contact-form" style="display: flex; flex-direction: column; gap: 16px;">
+          <div>
+            <label for="name" style="font-weight: 800; color: var(--text); display: block; margin-bottom: 6px;">Nombre completo</label>
+            <input type="text" id="name" name="name" required
+                   style="width: 100%; padding: 14px; border-radius: 14px; border: none;
+                          background: var(--bg); box-shadow: inset 5px 5px 10px rgba(0,0,0,0.08);
+                          font-size: 1rem; color: var(--text);" />
+          </div>
+
+          <div>
+            <label for="email" style="font-weight: 800; color: var(--text); display: block; margin-bottom: 6px;">Correo electrónico</label>
+            <input type="email" id="email" name="email" required
+                   style="width: 100%; padding: 14px; border-radius: 14px; border: none;
+                          background: var(--bg); box-shadow: inset 5px 5px 10px rgba(0,0,0,0.08);
+                          font-size: 1rem; color: var(--text);" />
+          </div>
+
+          <div>
+            <label for="message" style="font-weight: 800; color: var(--text); display: block; margin-bottom: 6px;">Mensaje</label>
+            <textarea id="message" name="message" rows="5" required
+                      style="width: 100%; padding: 14px; border-radius: 14px; border: none;
+                             background: var(--bg); box-shadow: inset 5px 5px 10px rgba(0,0,0,0.08);
+                             font-size: 1rem; color: var(--text); resize: vertical;"></textarea>
+          </div>
+
+          <button type="submit" class="add-btn" style="padding: 15px; font-size: 1rem; border-radius: 17px;">
+            Enviar mensaje
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  
+  <footer>
+    <p>© 2026 Esencia Andina. Extractos premium para perfumería artesanal.</p>
+    <div class="socials" aria-label="Redes sociales">
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="Facebook">◉</a>
+      <a href="#" aria-label="WhatsApp">⬡</a>
+    </div>
+  </footer>
+
+  <script>
+    
+    document.getElementById("contact-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      alert("¡Gracias por tu mensaje! Te responderemos pronto.");
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>
