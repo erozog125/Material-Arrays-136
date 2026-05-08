@@ -38,8 +38,83 @@ const btnBuy           = document.querySelector('#btn-buy');
 const cartTrigger      = document.querySelector('.cart-trigger');
 const cartSidebar      = document.querySelector('.cart-sidebar');
 
-// Arreglo que almacena los productos del carrito (vacío por ahora)
-let carrito = [];
+actualizarCarritoDOM(); // Mostrar estado inicial del carrito
+
+// ============================================================
+// FUNCIÓN: Actualizar el DOM del carrito
+// Recorre el array carrito y construye la lista visual
+// También actualiza el badge y el total en tiempo real
+// ============================================================
+const actualizarCarritoDOM = () => {
+    // Actualizar número del badge con el total de unidades
+    const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
+    cartBadge.textContent = totalItems;
+
+    // Si el carrito está vacío, mostrar estado vacío y salir
+    if (carrito.length === 0) {
+        cartItemsWrapper.innerHTML = `
+            <div class="empty-state">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="none" stroke="#475569" stroke-width="1.5">
+                    <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                </svg>
+                <p>No tienes motos seleccionadas.</p>
+            </div>`;
+        cartTotalDisplay.textContent = '0';
+        return;
+    }
+
+    // Construir HTML de los items y calcular el total
+    cartItemsWrapper.innerHTML = '';
+    let total = 0;
+
+    carrito.forEach(item => {
+        total += item.precio * item.cantidad;  // precio × cantidad
+        const itemHTML = `
+            <div class="cart-item">
+                <img src="${item.imagen}" alt="${item.nombre}">
+                <div class="item-info">
+                    <h4>${item.nombre}</h4>
+                    <span class="item-price">$${item.precio.toLocaleString()} x ${item.cantidad}</span>
+                </div>
+                <button class="btn-remove" data-id="${item.id}">❌</button>
+            </div>`;
+        cartItemsWrapper.insertAdjacentHTML('beforeend', itemHTML);
+    });
+
+    cartTotalDisplay.textContent = total.toLocaleString();
+};
+
+// ============================================================
+// EVENTO: Eliminar un producto del carrito al hacer clic en ❌
+// ============================================================
+cartItemsWrapper.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('btn-remove')) return;
+    const id = parseInt(event.target.getAttribute('data-id'));
+    carrito = carrito.filter(item => item.id !== id);
+    actualizarCarritoDOM();
+});
+
+// ============================================================
+// EVENTO: Vaciar todo el carrito
+// ============================================================
+btnEmptyCart.addEventListener('click', () => {
+    carrito = [];
+    actualizarCarritoDOM();
+});
+
+// ============================================================
+// EVENTO: Comprar — muestra alerta y limpia el carrito
+// ============================================================
+btnBuy.addEventListener('click', () => {
+    if (carrito.length > 0) {
+        alert('¡Compra realizada con éxito! 🏍️');
+        carrito = [];
+        actualizarCarritoDOM();
+    } else {
+        alert('El carrito está vacío.');
+    }
+});
 
 // ============================================================
 // EVENTO: Abrir / cerrar el sidebar del carrito en móvil
