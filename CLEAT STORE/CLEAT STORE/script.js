@@ -1,3 +1,8 @@
+// Agregar arriba junto a las referencias del DOM:
+const cartItems = document.getElementById("cart-items");
+const cartTotal = document.getElementById("cart-total");
+const sampleItem = document.querySelector(".sample-item");
+
 const productList = document.getElementById("product-list");
 productList.innerHTML = "";
 
@@ -45,5 +50,43 @@ btnAgregar.addEventListener("click", () => {
   } else {
     carrito.push({ ...producto, cantidad: 1 });
   }
-  console.log("Carrito:", carrito);
+  // Reemplazar console.log por:
+  renderCarrito();
 });
+
+
+
+// Agregar al final del archivo:
+function renderCarrito() {
+  cartItems.innerHTML = "";
+  if (sampleItem) sampleItem.style.display = "none";
+
+  carrito.forEach(item => {
+    const li = document.createElement("li");
+    li.classList.add("cart-item");
+
+    li.innerHTML = `
+      <div class="item-img-wrap">
+        <img src="${item.imagen}" alt="${item.nombre}" class="item-thumb" />
+      </div>
+      <div class="item-info">
+        <span class="item-brand">${item.marca}</span>
+        <span class="item-name">${item.nombre}</span>
+        <span class="item-qty">× ${item.cantidad}</span>
+      </div>
+      <div class="item-right">
+        <span class="item-subtotal">$${(item.precio * item.cantidad).toLocaleString("es-CO")}</span>
+      </div>
+    `;
+
+    cartItems.appendChild(li);
+  });
+
+  calcularTotal();
+}
+
+// Función para calcular el total de la compra
+function calcularTotal() {
+  const total = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
+  cartTotal.textContent = `$${total.toLocaleString("es-CO")}`;
+}
