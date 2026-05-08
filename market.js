@@ -101,3 +101,19 @@ function crearTarjetaProducto(producto) {
 
   return tarjeta;
 }
+
+// Esta función muestra todos los productos dentro de la galería.
+function mostrarProductosDestacados() {
+  const contenedor = document.querySelector(".featured-addons-grid");
+
+  if (contenedor == null) {
+    return;
+  }
+
+  contenedor.innerHTML = "";
+
+  productosDestacados.forEach(function(producto) {
+    const tarjetaProducto = crearTarjetaProducto(producto);
+    contenedor.appendChild(tarjetaProducto);
+  });
+}
