@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Maraton/Calzado deportivo</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+    <header>
+    <div class="header-inner">
+        <div class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-music"></i></span>
+            <span class="logo-text">Maraton</span>
+        </div>
+        <nav>
+            <a href="#inicio" class="nav-link active">Inicio</a>
+            <a href="#catalogo" class="nav-link">Productos</a>
+            <a href="#carrito-panel" class="nav-link">Carrito</a>
+            <a href="#footer" class="nav-link">Contacto</a>
+        </nav>
+        <!-- Botón carrito móvil -->
+        <button class="btn-carrito-movil" id="btnAbrirCarrito">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span class="badge-movil" id="badgeMovil">0</span>
+        </button>
+    </div>
+    </header>
+
+    <main>
+    <!-- Layout de dos columnas: contenido | carrito -->
+    <div class="layout">
+
+        <!-- ── COLUMNA IZQUIERDA ── -->
+        <div class="contenido">
+
+        <!-- Hero -->
+        <section class="hero" id="inicio">
+            <div class="hero-texto">
+                <span class="hero-badge">Calzado Deportivo</span>
+                <h1>Todo tipo de calzado para<br>todo tipo de deportistas.</h1>
+                <p>Explota nuestro inventario entre zapatos de running, futbol sala, futbol 11, baloncesto y voleyball.</p>
+            </div>
+        </section>
+        
+        <section class="filtros">
+            <div class="filtro-grupo">
+                <span class="filtro-label">BUSCAR</span>
+                <input type="text" id="inputBuscar" placeholder="Guitarra, piano, bateria..." />
+            </div>
+            <div class="filtro-grupo">
+                <span class="filtro-label">CATEGORÍA</span>
+                <select id="selectCategoria">
+                <option value="todas">Todas</option>
+                <option value="running">Running</option>
+                <option value="futbol">Futbol</option>
+                <option value="baloncesto">Baloncesto</option>
+                <option value="voleyball">Voleyball</option>
+                </select>
+            </div>
+            <div class="filtro-grupo">
+                <span class="filtro-label">PRECIO</span>
+                <select id="selectPrecio">
+                <option value="todos">Cualquier precio</option>
+                <option value="bajo">Menos de $99</option>
+                <option value="medio">$100 – $150</option>
+                <option value="alto">Más de $150</option>
+                </select>
+            </div>
+            <span class="total-productos" id="totalProductos">12 productos</span>
+        </section>
+
+            <section class="catalogo-seccion">
+            <h2>Calzados</h2>
+            <p class="subtitulo-seccion">Los mejores para rendir toda tu deportividad.</p>
+            <div class="catalogo" id="catalogo">
+            </div>
+            </section>
+        </div>
+
+        <aside class="carrito-panel" id="carrito-panel">
+            <div class="carrito-header">
+            <h3>Tu carrito</h3>
+            <span class="carrito-badge" id="carritoContador">0</span>
+            </div>
+            <div class="carrito-items" id="carritoItems">
+            </div>
+            <div class="carrito-resumen" id="carritoResumen">
+            </div>
+        </aside>
+
+        </div>
+
+    </main>
+
+    <footer id="footer">
+        <p>© 2025 <stron>Maraton</stron></strong> — Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:info@MaratonStore.com">info@MaratonStore.com</a></p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

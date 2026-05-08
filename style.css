@@ -12,7 +12,7 @@ body {
     line-height: 1.6;
 
     /* FLEXBOX ESTRATÉGICO: 
-       Hacemos que el body sea un contenedor flex vertical para 
+    Hacemos que el body sea un contenedor flex vertical para 
        empujar el footer al final de la pantalla. */
     display: flex;
     flex-direction: column;
