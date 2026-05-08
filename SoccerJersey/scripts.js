@@ -30,3 +30,35 @@ const productos = [
   { id:9, nombre:"argentina.webp — Campeona Mundial",    precio:335000, imgKey:"argentina.webp",   liga:"Selección",  badge:"hot"  }
 ];
 
+
+/* ============================================================
+   ESTADO — carrito recuperado desde localStorage al iniciar
+============================================================ */
+let carrito = cargarCarrito();
+let filtroActivo = "all";
+
+/* ============================================================
+   FUNCIÓN: cargarCarrito
+   Recupera el carrito persistido en localStorage.
+   Usa JSON.parse() para convertir el string guardado a objeto JS.
+============================================================ */
+function cargarCarrito() {
+  const datos = localStorage.getItem("soccerjersey_carrito");
+  return datos ? JSON.parse(datos) : [];
+}
+
+/* ============================================================
+   FUNCIÓN: guardarCarrito
+   Persiste el estado del carrito en localStorage.
+   Usa JSON.stringify() para convertir el objeto a string.
+============================================================ */
+function guardarCarrito() {
+  localStorage.setItem("soccerjersey_carrito", JSON.stringify(carrito));
+}
+
+/* ============================================================
+   FUNCIÓN: formatearPrecio
+   Formatea un número como precio en pesos colombianos.
+============================================================ */
+const formatearPrecio = (valor) => `$${valor.toLocaleString("es-CO")}`;
+
