@@ -38,6 +38,22 @@ const btnBuy           = document.querySelector('#btn-buy');
 const cartTrigger      = document.querySelector('.cart-trigger');
 const cartSidebar      = document.querySelector('.cart-sidebar');
 
+
+// ============================================================
+// PERSISTENCIA: Cargamos el carrito desde localStorage
+// JSON.parse convierte el string guardado de vuelta a un array
+// Si no hay nada guardado, empezamos con un array vacío
+// ============================================================
+let carrito = JSON.parse(localStorage.getItem('carritoApex')) || [];
+
+// ============================================================
+// FUNCIÓN: Guardar el carrito en localStorage
+// JSON.stringify convierte el array a string para poder guardarlo
+// ============================================================
+const guardarCarritoLS = () => {
+    localStorage.setItem('carritoApex', JSON.stringify(carrito));
+};
+
 actualizarCarritoDOM(); // Mostrar estado inicial del carrito
 
 // ============================================================
@@ -61,12 +77,17 @@ const actualizarCarritoDOM = () => {
                 <p>No tienes motos seleccionadas.</p>
             </div>`;
         cartTotalDisplay.textContent = '0';
+        guardarCarritoLS();
+        return;
         return;
     }
 
     // Construir HTML de los items y calcular el total
     cartItemsWrapper.innerHTML = '';
     let total = 0;
+
+    cartTotalDisplay.textContent = total.toLocaleString();
+        guardarCarritoLS(); // ← guardar estado actualizado
 
     carrito.forEach(item => {
         total += item.precio * item.cantidad;  // precio × cantidad
