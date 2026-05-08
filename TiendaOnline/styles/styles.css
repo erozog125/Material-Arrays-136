@@ -476,14 +476,6 @@ button {
   background: rgba(255, 255, 255, 0.2);
 }
 
-/* Invierte los iconos PNG para que se vean blancos sobre fondo oscuro */
-.footer__social img {
-  filter: brightness(0) invert(1);
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
-
 /* Barra inferior de copyright */
 .footer__bottom {
   max-width: var(--max-w);
