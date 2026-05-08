@@ -55,66 +55,9 @@
                 <div class="badge-retro">🔹 stock limitado 🔹</div>
             </div>
 
+            <!-- Contenedor donde JS va a renderizar los productos -->
             <div class="productos">
-                <!-- Card 1 -->
-                <article class="card-producto">
-                    <div class="imagen-producto">
-                        <img src="assets/ps2.jpg" alt="PlayStation 2">
-                    </div>
-                    <div class="info-producto">
-                        <h3>PlayStation 2</h3>
-                        <p>La consola más legendaria de Sony. Edición fat, lista para jugar.</p>
-                        <div class="footer-card">
-                            <span class="precio">$450.000</span>
-                            <button class="btn-agregar">+ Agregar</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 2 -->
-                <article class="card-producto">
-                    <div class="imagen-producto">
-                        <img src="assets/gameboy.jpg" alt="Game Boy Color">
-                    </div>
-                    <div class="info-producto">
-                        <h3>Game Boy Color</h3>
-                        <p>Revive los clásicos portátiles de Nintendo. Incluye funda.</p>
-                        <div class="footer-card">
-                            <span class="precio">$280.000</span>
-                            <button class="btn-agregar">+ Agregar</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 3 -->
-                <article class="card-producto">
-                    <div class="imagen-producto">
-                        <img src="assets/xbox.jpg" alt="Control Xbox">
-                    </div>
-                    <div class="info-producto">
-                        <h3>Control Xbox</h3>
-                        <p>Precisión gamer para cualquier plataforma. Edición especial.</p>
-                        <div class="footer-card">
-                            <span class="precio">$220.000</span>
-                            <button class="btn-agregar">+ Agregar</button>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Card 4 -->
-                <article class="card-producto">
-                    <div class="imagen-producto">
-                        <img src="assets/teclado.jpg" alt="Teclado RGB">
-                    </div>
-                    <div class="info-producto">
-                        <h3>Teclado RGB</h3>
-                        <p>Estilo mecánico con iluminación retro gamer y switches táctiles.</p>
-                        <div class="footer-card">
-                            <span class="precio">$180.000</span>
-                            <button class="btn-agregar">+ Agregar</button>
-                        </div>
-                    </div>
-                </article>
+                <!-- Los productos se generan dinámicamente con JavaScript -->
             </div>
         </section>
 
@@ -122,35 +65,21 @@
         <aside class="carrito">
             <div class="titulo-carrito">
                 <h2>🛒 Carrito</h2>
-                <span class="cart-count">(2 items)</span>
+                <span class="cart-count">(0 items)</span>
             </div>
 
+            <!-- Contenedor donde JS va a renderizar los items del carrito -->
             <div class="items-carrito-lista">
-                <div class="item-carrito">
-                    <div>
-                        <h4>PlayStation 2</h4>
-                        <p>x1 unidad</p>
-                    </div>
-                    <span>$450.000</span>
-                </div>
-
-                <div class="item-carrito">
-                    <div>
-                        <h4>Control Xbox</h4>
-                        <p>x2 unidades</p>
-                    </div>
-                    <span>$440.000</span>
-                </div>
+                <!-- Los items del carrito se generan dinámicamente con JavaScript -->
             </div>
 
             <div class="total">
                 <h3>TOTAL</h3>
-                <p>$890.000</p>
+                <p>$0</p>
             </div>
 
-            <button class="btn-pagar">
-                💳 Finalizar Compra
-            </button>
+            <button class="btn-pagar">💳 Finalizar Compra</button>
+            <button class="btn-vaciar">🗑️ Vaciar Carrito</button>
         </aside>
     </main>
 
@@ -159,5 +88,9 @@
         <p style="font-size: 0.75rem; margin-top: 8px;">✦ Revive la nostalgia, colecciona leyendas ✦</p>
     </footer>
 
+    <!-- SCRIPTS - El orden es IMPORTANTE -->
+    <script src="products.js"></script>
+    <script src="cart.js"></script>
+    <script src="shoppingCart.js"></script>
 </body>
 </html>
