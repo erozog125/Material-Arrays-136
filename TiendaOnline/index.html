@@ -1,11 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>tienda online</title>
+  <title>TechStore — Tecnología al instante</title>
+
+  <!-- Google Fonts: Syne (display) + DM Sans (cuerpo) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <!-- Hoja de estilos principal -->
+  <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-  
+
+  <!-- HEADER — Barra de navegación superior -->
+  <header class="header">
+    <div class="header__inner">
+
+      <!-- Logo de la tienda -->
+      <a href="#" class="header__logo">
+        <span class="logo__dot">●</span> TechStore
+      </a>
+
+      <!-- Navegación por categorías -->
+      <nav class="header__nav" aria-label="Categorías">
+        <a href="#" class="nav__link active">Todo</a>
+        <a href="#" class="nav__link">Accesorios</a>
+      </nav>
+
+      <!-- Icono del carrito — id para que JS actualice el badge -->
+      <button class="header__cart-icon" id="btn-abrir-carrito" aria-label="Ver carrito">
+        <img src="assets/iconos/carrito.png" alt="Carrito" width="24" height="24">
+        <!-- Badge con el número total de productos. JS lo muestra/oculta -->
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+
+    </div>
+  </header>
+
+
+  <main class="main">
+
+    <!-- ----- Sección Hero / Promoción destacada ----- -->
+    <section class="hero" aria-label="Promoción principal">
+      <div class="hero__inner">
+        <h1 class="hero__title">Tecnología<br><em>que transforma</em></h1>
+        <p class="hero__sub">Los mejores gadgets con entrega en menos de 60 minutos.</p>
+        <a href="#catalogo" class="hero__cta">Ver catálogo</a>
+      </div>
+
+      <!-- Imagen decorativa del hero -->
+      <div class="hero__image-wrap">
+        <img
+          src="assets/imagenes/11.jpg"
+          alt="Producto destacado"
+          class="hero__image"
+          width="520"
+          height="420"
+        >
+      </div>
+    </section>
+
+
+    <!-- ----- Sección Catálogo de Productos ----- -->
+    <section class="catalog" id="catalogo" aria-label="Catálogo de productos">
+      <div class="section__header">
+        <h2 class="section__title">Productos</h2>
+        <span class="section__badge">10 artículos</span>
+      </div>
+
+      <!-- Flexbox grid de productos — JS genera las tarjetas aquí dinámicamente -->
+      <div class="catalog__grid" id="catalogo-grid">
+        <!-- Las tarjetas son insertadas por renderCatalogo() en main.js -->
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER — Pie de página -->
+  <footer class="footer">
+    <div class="footer__inner">
+
+      <!-- Columna: Links de tienda -->
+      <div class="footer__col">
+        <p class="footer__col-title">Tienda</p>
+        <ul class="footer__links">
+          <li><a href="#">Todos los productos</a></li>
+          <li><a href="#">Ofertas</a></li>
+          <li><a href="#">Novedades</a></li>
+          <li><a href="#">Marcas</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna: Links de soporte -->
+      <div class="footer__col">
+        <p class="footer__col-title">Soporte</p>
+        <ul class="footer__links">
+          <li><a href="#">Centro de ayuda</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Rastrear pedido</a></li>
+          <li><a href="#">Contáctanos</a></li>
+        </ul>
+      </div>
+
+      <!-- Columna: Redes sociales -->
+      <div class="footer__col">
+        <p class="footer__col-title">Síguenos</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Facebook">
+            <img src="assets/iconos/facebook.png" alt="Facebook" width="24" height="24">
+          </a>
+          <a href="#" aria-label="Instagram">
+            <img src="assets/iconos/instagram.png" alt="Instagram" width="24" height="24">
+          </a>
+          <a href="#" aria-label="Twitter / X">
+            <img src="assets/iconos/twitter.png" alt="Twitter" width="24" height="24">
+          </a>
+        </div>
+      </div>
+
+    </div><!-- fin footer__inner -->
+
+    <!-- Barra inferior de copyright -->
+    <div class="footer__bottom">
+      <p>© 2025 TechStore. Todos los derechos reservados.</p>
+    </div>
+
+  </footer>
+
+  <!-- PANEL LATERAL DEL CARRITO (drawer) Oculto por defecto. JS lo abre/cierra con la clase .abierto -->
+
+  <!-- Fondo oscuro detrás del panel — clic cierra el carrito -->
+  <div class="cart-overlay" id="cart-overlay"></div>
+
+  <aside class="cart-drawer" id="cart-drawer" aria-label="Carrito de compras">
+
+    <!-- Encabezado del panel -->
+    <div class="cart-drawer__header">
+      <h2 class="cart-drawer__title">🛒 Mi carrito</h2>
+      <!-- Botón cerrar -->
+      <button class="cart-drawer__close" id="btn-cerrar-carrito" aria-label="Cerrar carrito">✕</button>
+    </div>
+
+    <!-- Lista de productos agregados — JS la rellena dinámicamente -->
+    <div class="cart-drawer__items" id="cart-items">
+      <!-- Los items se insertan por renderCarrito() en main.js -->
+    </div>
+
+    <!-- Pie del panel: total y botón de compra -->
+    <div class="cart-drawer__footer">
+      <div class="cart-total">
+        <span>Total</span>
+        <!-- JS actualiza este valor con calcularTotal() -->
+        <span id="cart-total">$0</span>
+      </div>
+      <button class="btn-checkout">Finalizar compra</button>
+    </div>
+
+  </aside>
+
+
+  <script src="js/main.js"></script>
+
 </body>
 </html>
