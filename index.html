@@ -7,110 +7,147 @@
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
-
-<header>
-  <div class="logo">
-    <div class="logo-icon">🌿</div>
-    <span>Esencia Andina</span>
-  </div>
-
-  <nav aria-label="Navegación principal">
-    <a class="active" href="index.html">Inicio</a>
-    <a href="pages/catalogo.html">Catálogo</a>
-    <a href="#carrito">Carrito</a>
-    <a href="pages/contacto.html">Contacto</a>
-  </nav>
-</header>
-
-<main id="inicio">
-  <section class="hero">
-    <div class="hero-content">
-      <span>Extractos naturales</span>
-      <h1>Aromas que cuentan historias.</h1>
-      <p>
-        Descubre extractos puros de vainilla, lavanda, cítricos y maderas
-        andinas para crear perfumes únicos con identidad.
-      </p>
+  
+  <header>
+    <div class="logo">
+      <div class="logo-icon">🌿</div>
+      <span>Esencia Andina</span>
     </div>
-  </section>
 
-  <section class="controls" aria-label="Controles de búsqueda y filtro">
-  <div class="control-card">
-    <label for="search">Buscar</label>
-    <input id="search" type="search" placeholder="Vainilla, lavanda, cítrica..." />
-  </div>
+    <nav aria-label="Navegación principal">
+      <a class="active" href="index.html">Inicio</a>
+      <a href="pages/catalog.html">Catálogo</a>
+      <a href="#carrito">Carrito</a>
+      <a href="pages/contact.html">Contacto</a>
+    </nav>
+  </header>
 
-  <div class="control-card">
-    <label for="category">Categoría</label>
-    <select id="category">
-      <option>Todas</option>
-      <option>Dulces</option>
-      <option>Florales</option>
-      <option>Cítricos</option>
-      <option>Amaderados</option>
-      <option>Frutales</option>
-    </select>
-  </div>
+  
+  <main id="inicio">
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-content">
+        <span>Extractos naturales</span>
+        <h1>Aromas que cuentan historias.</h1>
+        <p>
+          Descubre extractos puros de vainilla, lavanda, cítricos y maderas
+          andinas para crear perfumes únicos con identidad.
+        </p>
+      </div>
+    </section>
 
-  <div class="control-card">
-    <label for="price">Precio</label>
-    <select id="price">
-      <option>Cualquier precio</option>
-      <option>Menos de $30,000</option>
-      <option>$30,000 - $60,000</option>
-      <option>Más de $60,000</option>
-    </select>
-  </div>
+    
+    <section class="controls" aria-label="Controles de búsqueda y filtro">
+      <div class="control-card">
+        <label for="search">Buscar</label>
+        <input id="search" type="search" placeholder="Vainilla, lavanda, cítrica..." />
+      </div>
 
-  <div class="summary-chip">6 extractos</div>
-</section>
+      <div class="control-card">
+        <label for="category">Categoría</label>
+        <select id="category">
+          <option>Todas</option>
+          <option>Dulces</option>
+          <option>Florales</option>
+          <option>Cítricos</option>
+          <option>Amaderados</option>
+          <option>Frutales</option>
+        </select>
+      </div>
 
-<section id="productos">
-  <div class="section-title">
-    <div>
-      <h2>Extractos destacados</h2>
-      <p>Aromas puros para crear perfumes únicos.</p>
+      <div class="control-card">
+        <label for="price">Precio</label>
+        <select id="price">
+          <option>Cualquier precio</option>
+          <option>Menos de $30.000</option>
+          <option>$30.000 - $60.000</option>
+          <option>Más de $60.000</option>
+        </select>
+      </div>
+
+      <div class="summary-chip">6 extractos</div>
+    </section>
+
+    <section id="productos">
+      <div class="section-title">
+        <div>
+          <h2>Extractos destacados</h2>
+          <p>Aromas puros para crear perfumes únicos.</p>
+        </div>
+      </div>
+
+      <div class="products" id="products-container">
+        
+      </div>
+    </section>
+
+    <section class="stats-section">
+      <h2>Estadísticas del inventario</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <span class="stat-label">Extractos disponibles</span>
+          <span class="stat-value" id="stat-count">0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Precio promedio</span>
+          <span class="stat-value" id="stat-average">COP $0</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Más económico</span>
+          <span class="stat-value" id="stat-cheapest">-</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Más costoso</span>
+          <span class="stat-value" id="stat-costliest">-</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Valor total del inventario</span>
+          <span class="stat-value" id="stat-total-value">COP $0</span>
+        </div>
+      </div>
+      <div class="stats-list-container">
+        <h3>Lista ordenada por precio</h3>
+        <ul id="stats-sorted-list" class="stats-list"></ul>
+      </div>
+    </section>
+  </main>
+
+  <aside id="carrito" class="cart" aria-label="Carrito de compras">
+    <div class="cart-header">
+      <h2>Tu carrito</h2>
+      <span class="cart-count">0</span>
     </div>
-  </div>
 
-  <div class="products" id="products-container">
-  </div>
-</section>
-</main>
+    <div class="cart-list" id="cart-list">
+      <div class="empty-cart">Tu carrito está vacío</div>
+    </div>
 
-<aside id="carrito" class="cart" aria-label="Carrito de compras">
-  <div class="cart-header">
-    <h2>Tu carrito</h2>
-    <span class="cart-count">0</span>
-  </div>
-  <div class="cart-list" id="cart-list">
-    <div class="empty-cart">Tu carrito está vacío</div>
-  </div>
-  <div class="cart-total">
-    <div class="line">
-      <span>Subtotal</span>
-      <span id="cart-subtotal">$0</span>
+    <div class="cart-total">
+      <div class="line">
+        <span>Subtotal</span>
+        <span id="cart-subtotal">COP $0</span>
+      </div>
+      <div class="line">
+        <span>Envío</span>
+        <span id="cart-shipping">COP $0</span>
+      </div>
+      <div class="grand">
+        <span>Total</span>
+        <span id="cart-total">COP $0</span>
+      </div>
+      <button class="checkout-btn" id="checkout-btn">Finalizar compra</button>
     </div>
-    <div class="line">
-      <span>Envío</span>
-      <span id="cart-shipping">$0</span>
-    </div>
-    <div class="grand">
-      <span>Total</span>
-      <span id="cart-total">$0</span>
-    </div>
-    <button class="checkout-btn" id="checkout-btn">Finalizar compra</button>
-  </div>
-</aside>
+  </aside>
 
-<footer id="contacto">
-  <p>© 2026 Esencia Andina. Extractos premium para perfumería artesanal.</p>
-  <div class="socials" aria-label="Redes sociales">
-    <a href="#" aria-label="Instagram">◎</a>
-    <a href="#" aria-label="Facebook">◉</a>
-    <a href="#" aria-label="WhatsApp">⬡</a>
-  </div>
-</footer>
+  <footer id="contacto">
+    <p>© 2026 Esencia Andina. Extractos premium para perfumería artesanal.</p>
+    <p id="footer-summary" style="color: var(--text); font-weight: 700;"></p>
+    <div class="socials" aria-label="Redes sociales">
+      <a href="#" aria-label="Instagram">◎</a>
+      <a href="#" aria-label="Facebook">◉</a>
+      <a href="#" aria-label="WhatsApp">⬡</a>
+    </div>
+  </footer>
 
   <script src="js/app.js" defer></script>
 </body>
