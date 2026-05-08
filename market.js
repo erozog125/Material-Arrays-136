@@ -87,4 +87,17 @@ function crearTarjetaProducto(producto) {
   boton.className = "addon-add-btn";
   boton.textContent = "Agregar a mi pedido";
 
+
+// Guardamos el id del producto en el botón, esto es para el carrito de compras, para saber qué producto se está agregando al pedido.
+  boton.dataset.id = producto.id;
+
+  contenido.appendChild(titulo);
+  contenido.appendChild(descripcion);
+  contenido.appendChild(precio);
+  contenido.appendChild(boton);
+
+  tarjeta.appendChild(imagen);
+  tarjeta.appendChild(contenido);
+
+  return tarjeta;
 }
