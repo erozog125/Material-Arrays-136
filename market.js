@@ -36,3 +36,115 @@ const renderizarProductos = () => {
 
 // Llamar la función al cargar la página
 renderizarProductos()
+
+// Función para agregar un producto al carrito
+const agregarAlCarrito = (id) => {
+    const productoExistente = carrito.find(item => item.id === id)
+
+    if (productoExistente) {
+        // Si ya existe en el carrito, aumentar la cantidad
+        productoExistente.cantidad++
+    } else {
+        // Si no existe, buscarlo en el arreglo de productos y agregarlo
+        const producto = productos.find(item => item.id === id)
+        carrito.push({ ...producto, cantidad: 1 })
+    }
+
+    actualizarCarrito()
+}
+
+// Función para actualizar el carrito en el DOM
+const actualizarCarrito = () => {
+    const contenedorItems = document.querySelector('#cart-items')
+    const cartCount = document.querySelector('#cart-count')
+
+    contenedorItems.innerHTML = ''
+
+    if (carrito.length === 0) {
+        contenedorItems.innerHTML = '<p class="cart__empty">Tu carrito está vacío 🥺</p>'
+    } else {
+        carrito.forEach(item => {
+            contenedorItems.innerHTML += `
+                <div class="cart-item">
+                    <img class="cart-item__img" src="${item.imagen}" alt="${item.nombre}">
+                    <div class="cart-item__info">
+                        <p class="cart-item__name">${item.nombre}</p>
+                        <p class="cart-item__price">$${(item.precio * item.cantidad).toLocaleString('es-CO')}</p>
+                    </div>
+                    <div class="cart-item__controls">
+                        <button class="cart-item__qty-btn" onclick="cambiarCantidad(${item.id}, -1)">−</button>
+                        <span class="cart-item__qty">${item.cantidad}</span>
+                        <button class="cart-item__qty-btn" onclick="cambiarCantidad(${item.id}, 1)">+</button>
+                        <button class="cart-item__delete" onclick="eliminarDelCarrito(${item.id})">🗑️</button>
+                    </div>
+                </div>
+            `
+        })
+    }
+
+    calcularTotal()
+    actualizarContador()
+}
+
+// Función para calcular el total del carrito
+const calcularTotal = () => {
+    const total = carrito.reduce((acumulador, item) => {
+        return acumulador + (item.precio * item.cantidad)
+    }, 0)
+
+    document.querySelector('#cart-total').textContent = `$${total.toLocaleString('es-CO')}`
+}
+
+// Función para actualizar el contador del botón del carrito
+const actualizarContador = () => {
+    const totalItems = carrito.reduce((acumulador, item) => {
+        return acumulador + item.cantidad
+    }, 0)
+
+    document.querySelector('#cart-count').textContent = totalItems
+}
+
+// Función para aumentar o disminuir la cantidad de un producto en el carrito
+const cambiarCantidad = (id, cambio) => {
+    const producto = carrito.find(item => item.id === id)
+
+    producto.cantidad += cambio
+
+    // Si la cantidad llega a 0, eliminar el producto del carrito
+    if (producto.cantidad === 0) {
+        eliminarDelCarrito(id)
+        return
+    }
+
+    actualizarCarrito()
+}
+
+// Función para eliminar un producto del carrito
+const eliminarDelCarrito = (id) => {
+    carrito = carrito.filter(item => item.id !== id)
+    actualizarCarrito()
+}
+
+// Referencias a los elementos del carrito
+const cartToggle = document.querySelector('#cart-toggle')
+const cartPanel = document.querySelector('#cart-panel')
+const cartClose = document.querySelector('#cart-close')
+const overlay = document.querySelector('#overlay')
+
+// Función para abrir el carrito
+const abrirCarrito = () => {
+    cartPanel.classList.add('open')
+    overlay.classList.add('active')
+    actualizarCarrito()
+}
+
+// Función para cerrar el carrito
+const cerrarCarrito = () => {
+    cartPanel.classList.remove('open')
+    overlay.classList.remove('active')
+}
+
+// Event listeners para abrir y cerrar el carrito
+cartToggle.addEventListener('click', abrirCarrito)
+cartClose.addEventListener('click', cerrarCarrito)
+overlay.addEventListener('click', cerrarCarrito)
