@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="styles/style.css" />
 </head>
 <body>
+
 <header>
   <div class="logo">
     <div class="logo-icon">🌿</div>
     <span>Esencia Andina</span>
   </div>
+
   <nav aria-label="Navegación principal">
     <a class="active" href="index.html">Inicio</a>
     <a href="pages/catalogo.html">Catálogo</a>
@@ -31,6 +33,50 @@
       </p>
     </div>
   </section>
+
+  <section class="controls" aria-label="Controles de búsqueda y filtro">
+  <div class="control-card">
+    <label for="search">Buscar</label>
+    <input id="search" type="search" placeholder="Vainilla, lavanda, cítrica..." />
+  </div>
+
+  <div class="control-card">
+    <label for="category">Categoría</label>
+    <select id="category">
+      <option>Todas</option>
+      <option>Dulces</option>
+      <option>Florales</option>
+      <option>Cítricos</option>
+      <option>Amaderados</option>
+      <option>Frutales</option>
+    </select>
+  </div>
+
+  <div class="control-card">
+    <label for="price">Precio</label>
+    <select id="price">
+      <option>Cualquier precio</option>
+      <option>Menos de $30,000</option>
+      <option>$30,000 - $60,000</option>
+      <option>Más de $60,000</option>
+    </select>
+  </div>
+
+  <div class="summary-chip">6 extractos</div>
+</section>
+
+<section id="productos">
+  <div class="section-title">
+    <div>
+      <h2>Extractos destacados</h2>
+      <p>Aromas puros para crear perfumes únicos.</p>
+    </div>
+  </div>
+
+  <div class="products" id="products-container">
+    <!-- Se llenará dinámicamente con JS (ahora estático para visualización) -->
+  </div>
+</section>
 </main>
 
 <footer id="contacto">
