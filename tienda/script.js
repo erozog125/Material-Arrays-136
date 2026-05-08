@@ -6,8 +6,8 @@ const productos = [
     { id: 5,  nombre: "Brooks Ghost",          precio: 150, categoria: "running",     tag: "clasico", imagen: "img/Ghost.webp" },
     { id: 6,  nombre: "Under Armour Curry",    precio: 160, categoria: "baloncesto",  tag: "nuevo",   imagen: "img/curry.png" },
     { id: 7,  nombre: "Adidas Dame",           precio: 120, categoria: "baloncesto",  tag: "oferta",  imagen: "img/dame.avif" },
-    { id: 8,  nombre: "Asics Sky Elite",       precio: 200, categoria: "voleibol",    tag: "top",     imagen: "img/sky.jpg" },
-    { id: 9,  nombre: "Asics Sky Elite",       precio: 200, categoria: "voleibol",    tag: "nuevo",   imagen: "img/sky2.jpg" },
+    { id: 8,  nombre: "Asics Sky Elite",       precio: 200, categoria: "baloncesto",    tag: "top",     imagen: "img/sky.jpg" },
+    { id: 9,  nombre: "Asics Sky Elite",       precio: 200, categoria: "baloncesto",    tag: "nuevo",   imagen: "img/sky2.jpg" },
     { id: 10, nombre: "Adidas Ultraboost",     precio: 190, categoria: "running",     tag: "oferta",  imagen: "img/ultraboost.avif" },
 ];
 
@@ -139,9 +139,9 @@ let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
     const resultado = productos.filter(p => {
         const texto    = p.nombre.toLowerCase().includes(busqueda);
         const cat      = categoria === "todas" || p.categoria === categoria;
-        const precioOk = precio === "bajo"  ? p.precio < 300
-                    : precio === "medio" ? p.precio >= 300 && p.precio <= 600
-                    : precio === "alto"  ? p.precio > 600
+        const precioOk = precio === "bajo"  ? p.precio < 99
+                    : precio === "medio" ? p.precio >= 100 && p.precio <= 150
+                    : precio === "alto"  ? p.precio > 150
                     : true;
         return texto && cat && precioOk;
     });
