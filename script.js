@@ -1,7 +1,6 @@
-// ============================================================
+
 // FUENTE DE DATOS: Arreglo de objetos con los productos
 // Cada objeto tiene id, nombre, precio e imagen
-// ============================================================
 const productos = [
     { id: 1,  nombre: "Ducati Panigale V4",       precio: 24495, imagen: "/img/Ducati Panigale V4.jpg" },
     { id: 2,  nombre: "Yamaha YZF-R1",             precio: 17999, imagen: "/img/Yamaha YZF-R1.jpg" },
@@ -25,9 +24,8 @@ const productos = [
     { id: 20, nombre: "Honda CBR600RR",             precio: 11999, imagen: "/img/Honda CBR600RR.jpg" },
 ];
 
-// ============================================================
 // SELECTORES DEL DOM
-// ============================================================
+
 const cartBadge        = document.querySelector('#cart-count');
 const cartItemsWrapper = document.querySelector('#cart-items');
 const cartTotalDisplay = document.querySelector('#cart-total');
@@ -38,26 +36,25 @@ const productGrid      = document.querySelector('#product-list');
 const cartTrigger      = document.querySelector('.cart-trigger');
 const cartSidebar      = document.querySelector('.cart-sidebar');
 
-// ============================================================
+
 // PERSISTENCIA: Cargamos el carrito desde localStorage
 // Si no existe nada guardado, empezamos con un array vacío
 // JSON.parse convierte el string guardado de vuelta a un array
-// ============================================================
+
 let carrito = JSON.parse(localStorage.getItem('carritoApex')) || [];
 
-// ============================================================
+
 // FUNCIÓN: Guardar el carrito en localStorage
 // JSON.stringify convierte el array a string para poder guardarlo
-// ============================================================
+
 const guardarCarritoLS = () => {
     localStorage.setItem('carritoApex', JSON.stringify(carrito));
 };
 
-// ============================================================
+
 // FUNCIÓN: Renderizar las cards desde el array de productos
 // Recorre el array y genera el HTML de cada tarjeta en el DOM
-// ============================================================
-const renderizarProductos = (lista) => {
+ renderizarProductos = (lista) => {
     productGrid.innerHTML = '';
     lista.forEach(producto => {
         const cardHTML = `
@@ -84,11 +81,11 @@ const renderizarProductos = (lista) => {
     });
 };
 
-// ============================================================
+
 // FUNCIÓN: Actualizar el DOM del carrito
 // Recorre el array carrito y construye la lista visual
 // También actualiza el badge, el total y guarda en localStorage
-// ============================================================
+
 const actualizarCarritoDOM = () => {
     // Actualizar número del badge
     const totalItems = carrito.reduce((acc, item) => acc + item.cantidad, 0);
@@ -131,19 +128,19 @@ const actualizarCarritoDOM = () => {
     guardarCarritoLS();
 };
 
-// ============================================================
+
 // EVENTO: Abrir / cerrar el sidebar del carrito
-// ============================================================
+
 cartTrigger.addEventListener('click', () => {
     cartSidebar.classList.toggle('cart-visible');
     cartTrigger.classList.toggle('activo');
 });
 
-// ============================================================
+
 // EVENTO: Agregar producto al carrito (delegación de eventos)
 // Si el producto ya existe, incrementa su cantidad (no duplica)
 // Si no existe, lo agrega como nuevo objeto con cantidad: 1
-// ============================================================
+
 productGrid.addEventListener('click', (event) => {
     if (!event.target.classList.contains('add-to-cart')) return;
 
@@ -164,9 +161,9 @@ productGrid.addEventListener('click', (event) => {
     actualizarCarritoDOM();
 });
 
-// ============================================================
+
 // EVENTO: Eliminar un producto del carrito al hacer clic en ❌
-// ============================================================
+
 cartItemsWrapper.addEventListener('click', (event) => {
     if (!event.target.classList.contains('btn-remove')) return;
 
@@ -175,17 +172,17 @@ cartItemsWrapper.addEventListener('click', (event) => {
     actualizarCarritoDOM();
 });
 
-// ============================================================
+
 // EVENTO: Vaciar todo el carrito
-// ============================================================
+
 btnEmptyCart.addEventListener('click', () => {
     carrito = [];
     actualizarCarritoDOM();
 });
 
-// ============================================================
+
 // EVENTO: Comprar — muestra alerta, limpia el carrito y el LS
-// ============================================================
+
 btnBuy.addEventListener('click', () => {
     if (carrito.length > 0) {
         alert('¡Compra realizada con éxito! 🏍️');
@@ -196,10 +193,10 @@ btnBuy.addEventListener('click', () => {
     }
 });
 
-// ============================================================
+
 // EVENTO: Formulario admin — agregar nueva moto al catálogo
 // Le asigna un id dinámico basado en la longitud del array
-// ============================================================
+
 addMotoForm.addEventListener('submit', (event) => {
     event.preventDefault();
 
@@ -221,9 +218,9 @@ addMotoForm.addEventListener('submit', (event) => {
     alert(`Moto agregada: ${nombre}`);
 });
 
-// ============================================================
+
 // COUNTDOWN: Cuenta regresiva hacia la fecha de oferta
-// ============================================================
+
 const diasEl    = document.querySelector('#countdown-dias');
 const horasEl   = document.querySelector('#countdown-horas');
 const minutosEl = document.querySelector('#countdown-minutos');
@@ -244,10 +241,10 @@ const updateCountdown = () => {
     segundosEl.textContent = Math.floor((diff % (1000 * 60)) / 1000);
 };
 
-// ============================================================
+
 // INICIALIZACIÓN: Al cargar la página renderizamos productos
 // y reconstruimos el carrito desde lo que haya en localStorage
-// ============================================================
+
 renderizarProductos(productos);
 actualizarCarritoDOM();
 updateCountdown();
