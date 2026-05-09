@@ -1,0 +1,93 @@
+/* =====================================================
+   animations.css — Keyframes y efectos visuales
+   ===================================================== */
+
+/* ── H1: Neón dañado (parpadeo irregular, apagados, chispas) ── */
+@keyframes neonDamaged {
+  /* Estado normal estable */
+  0%, 100% {
+    text-shadow:
+      0 0 4px #fff,
+      0 0 10px #00d4ff,
+      0 0 22px #00d4ff,
+      0 0 45px rgba(0,212,255,0.45);
+    opacity: 1;
+    color: #fff;
+  }
+  /* Micro-parpadeo rápido */
+  3%  { opacity: 0.6; text-shadow: 0 0 3px #00d4ff; }
+  4%  { opacity: 1;   text-shadow: 0 0 4px #fff, 0 0 10px #00d4ff, 0 0 22px #00d4ff, 0 0 45px rgba(0,212,255,0.45); }
+  5%  { opacity: 0;   text-shadow: none; }
+  6%  { opacity: 1;   text-shadow: 0 0 4px #fff, 0 0 12px #00d4ff, 0 0 24px #00d4ff; }
+
+  /* Caída de tensión */
+  32% { text-shadow: 0 0 2px rgba(0,212,255,0.4); opacity: 0.35; color: #aef; }
+  34% { text-shadow: 0 0 4px #fff, 0 0 10px #00d4ff, 0 0 22px #00d4ff; opacity: 1; color: #fff; }
+  35% { text-shadow: none; opacity: 0; }
+  36% { text-shadow: 0 0 4px #fff, 0 0 10px #00d4ff, 0 0 22px #00d4ff, 0 0 45px rgba(0,212,255,0.45); opacity: 1; }
+
+  /* Apagado completo doble */
+  54%  { text-shadow: none; opacity: 0; }
+  54.5%{ text-shadow: 0 0 4px #fff, 0 0 14px #00d4ff, 0 0 28px #00d4ff; opacity: 1; }
+  55%  { text-shadow: none; opacity: 0; }
+  55.6%{ text-shadow: 0 0 4px #fff, 0 0 10px #00d4ff, 0 0 22px #00d4ff, 0 0 45px rgba(0,212,255,0.45); opacity: 1; }
+
+  /* Sobretensión (destello fuerte) */
+  70% {
+    text-shadow:
+      0 0 6px #fff,
+      0 0 18px #00d4ff,
+      0 0 38px #00d4ff,
+      0 0 70px #00d4ff,
+      0 0 100px rgba(0,212,255,0.3);
+    opacity: 1;
+  }
+  71% { text-shadow: 0 0 4px #fff, 0 0 10px #00d4ff, 0 0 22px #00d4ff, 0 0 45px rgba(0,212,255,0.45); }
+
+  /* Glitch de color: shift a morado */
+  84% { color: #c4b5fd; text-shadow: 0 0 4px #fff, 0 0 12px #7c3aed, 0 0 26px #7c3aed; }
+  86% { color: #fff;    text-shadow: 0 0 4px #fff, 0 0 10px #00d4ff, 0 0 22px #00d4ff, 0 0 45px rgba(0,212,255,0.45); }
+
+  /* Apagado final rápido */
+  93% { opacity: 0;  text-shadow: none; }
+  94% { opacity: 1;  text-shadow: 0 0 4px #fff, 0 0 10px #00d4ff, 0 0 22px #00d4ff, 0 0 45px rgba(0,212,255,0.45); }
+}
+
+/* ── Scan line que cruza el H1 ── */
+@keyframes scanH1 {
+  0%, 100% { transform: translateY(-200%); opacity: 0; }
+  10%       { opacity: 0; }
+  12%       { opacity: 1; transform: translateY(0%); }
+  14%       { opacity: 0; transform: translateY(200%); }
+}
+
+/* ── Entrada de cards ── */
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)  scale(1); }
+}
+
+/* ── Overlay ── */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ── Pulso botón cart ── */
+@keyframes cartBtnPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,212,255,0.4); }
+  50%       { box-shadow: 0 0 0 8px rgba(0,212,255,0); }
+}
+
+/* ── Glow de badge de carrito ── */
+@keyframes countGlow {
+  0%, 100% { box-shadow: 0 0 4px rgba(0,212,255,0.8); }
+  50%       { box-shadow: 0 0 10px rgba(0,212,255,1); }
+}
+
+/* ── Spin suave del ícono carrito ── */
+@keyframes cartIconBounce {
+  0%, 100% { transform: rotate(0deg); }
+  25%       { transform: rotate(-8deg); }
+  75%       { transform: rotate(8deg); }
+}
