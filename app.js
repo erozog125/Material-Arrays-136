@@ -1,121 +1,140 @@
 const arrayProducts = [
-  {
-    id: 1,
-    name: "Reloj",
-    image: "./assets/images/reloj.jpg",
-    description: "Esto es un reloj",
-    price: 300000,
-  },
-  {
-    id: 2,
-    name: "Phone",
-    image: "./assets/images/phone.jpg",
-    description: "Esto es un teléfono",
-    price: 4000000,
-  },
+  { id: 1, name: "Reloj", image: "./assets/images/reloj.jpg", description: "Reloj elegante", price: 300000 },
+  { id: 2, name: "Phone", image: "./assets/images/phone.jpg", description: "Smartphone", price: 4000000 },
+  { id: 3, name: "Laptop", image: "./assets/images/laptop.jpg", description: "Potente laptop", price: 2500000 },
+  { id: 4, name: "Audífonos", image: "./assets/images/audifonos.jpg", description: "Bluetooth", price: 150000 },
+  { id: 5, name: "Teclado", image: "./assets/images/teclado.jpg", description: "Mecánico", price: 200000 },
+  { id: 6, name: "Mouse", image: "./assets/images/mouse.jpg", description: "Gaming", price: 100000 },
 ];
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-/* =========================
-   RENDER PRODUCTOS
-========================= */
+/* ================= UI CART ================= */
+
+const cartEl = document.getElementById("cart");
+const overlay = document.getElementById("overlay");
+
+document.getElementById("open-cart").addEventListener("click", () => {
+  cartEl.classList.add("open");
+  overlay.classList.remove("hidden");
+});
+
+document.getElementById("close-cart").addEventListener("click", closeCart);
+overlay.addEventListener("click", closeCart);
+
+function closeCart() {
+  cartEl.classList.remove("open");
+  overlay.classList.add("hidden");
+}
+
+/* ================= PRODUCTS ================= */
+
 const renderProducts = () => {
   const main = document.querySelector("main");
   main.innerHTML = "";
 
-  arrayProducts.forEach((product) => {
-    main.appendChild(makeCard(product));
+  arrayProducts.forEach(product => {
+    main.appendChild(createCard(product));
   });
 };
 
-/* =========================
-   CREAR CARD
-========================= */
-const makeCard = (product) => {
-  const cardProduct = document.createElement("div");
-  cardProduct.classList.add("card");
+const createCard = (product) => {
+  const card = document.createElement("div");
+  card.classList.add("card");
 
-  const titleProduct = document.createElement("h3");
-  const imageProduct = document.createElement("img");
-  const descriptionProduct = document.createElement("p");
-  const priceProduct = document.createElement("span");
-  const buttonCard = document.createElement("button");
+  card.innerHTML = `
+    <h3>${product.name}</h3>
+    <img src="${product.image}">
+    <p>${product.description}</p>
+    <span>$${product.price}</span>
+    <button>Agregar</button>
+  `;
 
-  titleProduct.textContent = product.name;
-  imageProduct.src = product.image;
-  descriptionProduct.textContent = product.description;
-  priceProduct.textContent = `$${product.price}`;
-  buttonCard.textContent = "Agregar";
+  card.querySelector("button").addEventListener("click", () => addToCart(product));
 
-  buttonCard.addEventListener("click", () => addToCart(product));
-
-  cardProduct.append(
-    titleProduct,
-    imageProduct,
-    descriptionProduct,
-    priceProduct,
-    buttonCard,
-  );
-
-  return cardProduct;
+  return card;
 };
 
-/* =========================
-   AGREGAR AL CARRITO
-========================= */
-const addToCart = (product) => {
-  const existing = cart.find((item) => item.id === product.id);
+/* ================= CART LOGIC ================= */
 
-  if (existing) {
-    existing.quantity += 1;
+const addToCart = (product) => {
+  const item = cart.find(p => p.id === product.id);
+
+  if (item) {
+    item.quantity++;
   } else {
     cart.push({ ...product, quantity: 1 });
   }
 
   saveCart();
-  updateCartUI();
+  renderCart();
 };
 
-/* =========================
-   ELIMINAR PRODUCTO
-========================= */
-const removeFromCart = (id) => {
-  cart = cart.filter((item) => item.id !== id);
+const changeQty = (id, value) => {
+  const item = cart.find(p => p.id === id);
+
+  if (!item) return;
+
+  item.quantity += value;
+
+  if (item.quantity <= 0) {
+    cart = cart.filter(p => p.id !== id);
+  }
+
   saveCart();
-  updateCartUI();
+  renderCart();
 };
 
-/* =========================
-   TOTAL
-========================= */
-const calculateTotal = () => {
-  return cart.reduce((total, item) => {
-    return total + item.price * item.quantity;
-  }, 0);
-};
+const renderCart = () => {
+  const container = document.getElementById("cart-items");
+  container.innerHTML = "";
 
-/* =========================
-   UI DEL CARRITO
-========================= */
-const updateCartUI = () => {
-  const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+  let total = 0;
+  let count = 0;
 
+  cart.forEach(item => {
+    total += item.price * item.quantity;
+    count += item.quantity;
+
+    const div = document.createElement("div");
+    div.classList.add("cart-item");
+
+    div.innerHTML = `
+      <div>
+        <strong>${item.name}</strong>
+        <p>$${item.price}</p>
+      </div>
+
+      <div class="qty-controls">
+        <button onclick="changeQty(${item.id}, -1)">-</button>
+        <span>${item.quantity}</span>
+        <button onclick="changeQty(${item.id}, 1)">+</button>
+        <button onclick="removeItem(${item.id})">x</button>
+      </div>
+    `;
+
+    container.appendChild(div);
+  });
+
+  document.getElementById("cart-total").textContent = total;
   document.getElementById("cart-count").textContent = count;
-  document.getElementById("cart-total").textContent = calculateTotal();
 };
 
-/* =========================
-   LOCALSTORAGE
-========================= */
+const removeItem = (id) => {
+  cart = cart.filter(p => p.id !== id);
+  saveCart();
+  renderCart();
+};
+
+/* ================= STORAGE ================= */
+
 const saveCart = () => {
   localStorage.setItem("cart", JSON.stringify(cart));
 };
 
-/* =========================
-   INIT
-========================= */
+/* ================= INIT ================= */
+
 window.addEventListener("DOMContentLoaded", () => {
   renderProducts();
-  updateCartUI();
+  renderCart();
 });
