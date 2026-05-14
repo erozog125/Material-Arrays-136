@@ -12,3 +12,28 @@ let carrito = [];
 function formatearPrecioCarrito(precio) {
   return "$" + precio.toLocaleString("es-CO");
 }
+
+// Esta función guarda el carrito en localStorage, de este modo, si la persona recarga la página, el pedido no se perdaría.
+function guardarCarrito() {
+  localStorage.setItem("carritoDetallitosHarly", JSON.stringify(carrito));
+}
+
+// Esta función carga el carrito guardado en localStorage.
+function cargarCarrito() {
+  const carritoGuardado = localStorage.getItem("carritoDetallitosHarly");
+
+  if (carritoGuardado != null) {
+    carrito = JSON.parse(carritoGuardado);
+  }
+}
+
+// Esta función calcula el subtotal del carrito y multiplica el precio por la cantidad de cada producto.
+function calcularSubtotal() {
+  let subtotal = 0;
+
+  carrito.forEach(function(producto) {
+    subtotal = subtotal + producto.precio * producto.cantidad;
+  });
+
+  return subtotal;
+}
