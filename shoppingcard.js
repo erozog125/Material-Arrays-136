@@ -37,3 +37,84 @@ function calcularSubtotal() {
 
   return subtotal;
 }
+
+// Esta función muestra el carrito en la página, actualiza el subtotal y el total. También se encarga de mostrar un mensaje si el carrito está vacío.
+function mostrarCarrito() {
+  const contenedorCarrito = document.getElementById("cart-items");
+  const subtotalTexto = document.getElementById("subtotal");
+  const totalTexto = document.getElementById("total");
+
+  if (contenedorCarrito == null) {
+    return;
+  }
+
+  contenedorCarrito.innerHTML = "";
+
+  if (carrito.length === 0) {
+    const mensaje = document.createElement("p");
+    mensaje.className = "empty-cart-message";
+    mensaje.textContent = "Aún no has agregado productos.";
+
+    contenedorCarrito.appendChild(mensaje);
+
+    subtotalTexto.textContent = "$0";
+    totalTexto.textContent = "$0";
+
+    return;
+  }
+
+  carrito.forEach(function(producto) {
+    const item = document.createElement("div");
+    item.className = "cart-item";
+
+    const info = document.createElement("div");
+
+    const nombre = document.createElement("h4");
+    nombre.textContent = producto.nombre;
+
+    const precio = document.createElement("p");
+    precio.textContent = formatearPrecioCarrito(producto.precio) + " x " + producto.cantidad;
+
+    info.appendChild(nombre);
+    info.appendChild(precio);
+
+    const acciones = document.createElement("div");
+    acciones.className = "cart-item-actions";
+
+    const botonRestar = document.createElement("button");
+    botonRestar.type = "button";
+    botonRestar.textContent = "-";
+    botonRestar.dataset.id = producto.id;
+    botonRestar.className = "cart-minus-btn";
+
+    const cantidad = document.createElement("span");
+    cantidad.textContent = producto.cantidad;
+
+    const botonSumar = document.createElement("button");
+    botonSumar.type = "button";
+    botonSumar.textContent = "+";
+    botonSumar.dataset.id = producto.id;
+    botonSumar.className = "cart-plus-btn";
+
+    const botonEliminar = document.createElement("button");
+    botonEliminar.type = "button";
+    botonEliminar.textContent = "Eliminar";
+    botonEliminar.dataset.id = producto.id;
+    botonEliminar.className = "cart-delete-btn";
+
+    acciones.appendChild(botonRestar);
+    acciones.appendChild(cantidad);
+    acciones.appendChild(botonSumar);
+    acciones.appendChild(botonEliminar);
+
+    item.appendChild(info);
+    item.appendChild(acciones);
+
+    contenedorCarrito.appendChild(item);
+  });
+
+  const subtotal = calcularSubtotal();
+
+  subtotalTexto.textContent = formatearPrecioCarrito(subtotal);
+  totalTexto.textContent = formatearPrecioCarrito(subtotal);
+}
