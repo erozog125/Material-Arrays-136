@@ -174,3 +174,23 @@ function restarCantidad(idProducto) {
   guardarCarrito();
   mostrarCarrito();
 }
+
+// Esta función elimina un producto completo del carrito.
+function eliminarProducto(idProducto) {
+  carrito = carrito.filter(function(item) {
+    return item.id !== idProducto;
+  });
+
+  guardarCarrito();
+  mostrarCarrito();
+}
+
+
+// Esta función vacía todo el carrito.
+function vaciarCarrito() {
+  carrito = [];
+
+  guardarCarrito();
+  mostrarCarrito();
+}
+ 
