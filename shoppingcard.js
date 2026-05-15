@@ -235,3 +235,21 @@ function activarEventosCarrito() {
     });
   }
 }
+
+// Cuando la página carga, recuperamos el carrito guardado y activamos los botones.
+document.addEventListener("DOMContentLoaded", function() {
+  cargarCarrito();
+  mostrarCarrito();
+  activarEventosCarrito();
+});
+
+// Funciones disponibles para checkout.js. y en el siguiente commit las usaremos para calcular el total final.
+window.obtenerCarrito = function() {
+  return carrito;
+};
+
+window.obtenerSubtotalCarrito = function() {
+  return calcularSubtotal();
+};
+
+window.mostrarCarrito = mostrarCarrito;
