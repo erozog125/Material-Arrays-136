@@ -139,3 +139,38 @@ function agregarAlCarrito(producto) {
   guardarCarrito();
   mostrarCarrito();
 } 
+
+// Esta función aumenta la cantidad de un producto.
+function aumentarCantidad(idProducto) {
+  const productoEncontrado = carrito.find(function(item) {
+    return item.id === idProducto;
+  });
+
+  if (productoEncontrado != null) {
+    productoEncontrado.cantidad = productoEncontrado.cantidad + 1;
+  }
+
+  guardarCarrito();
+  mostrarCarrito();
+}
+
+// Esta función resta la cantidad y si llega a cero, elimina el producto.
+function restarCantidad(idProducto) {
+  const productoEncontrado = carrito.find(function(item) {
+    return item.id === idProducto;
+  });
+
+  if (productoEncontrado == null) {
+    return;
+  }
+
+  productoEncontrado.cantidad = productoEncontrado.cantidad - 1;
+
+  if (productoEncontrado.cantidad <= 0) {
+    eliminarProducto(idProducto);
+    return;
+  }
+
+  guardarCarrito();
+  mostrarCarrito();
+}
