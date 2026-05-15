@@ -193,4 +193,45 @@ function vaciarCarrito() {
   guardarCarrito();
   mostrarCarrito();
 }
- 
+
+// Esta función escucha los clics en los botones de la página y dependiendo del botón, llama a la función correspondiente para agregar, aumentar, restar o eliminar productos del carrito. 
+function activarEventosCarrito() {
+  document.addEventListener("click", function(evento) {
+    const botonAgregar = evento.target.closest(".addon-add-btn");
+    const botonSumar = evento.target.closest(".cart-plus-btn");
+    const botonRestar = evento.target.closest(".cart-minus-btn");
+    const botonEliminar = evento.target.closest(".cart-delete-btn");
+
+    if (botonAgregar != null) {
+      const idProducto = Number(botonAgregar.dataset.id);
+
+      const producto = window.productosDestacados.find(function(item) {
+        return item.id === idProducto;
+      });
+
+      if (producto != null) {
+        agregarAlCarrito(producto);
+      }
+    }
+
+    if (botonSumar != null) {
+      aumentarCantidad(Number(botonSumar.dataset.id));
+    }
+
+    if (botonRestar != null) {
+      restarCantidad(Number(botonRestar.dataset.id));
+    }
+
+    if (botonEliminar != null) {
+      eliminarProducto(Number(botonEliminar.dataset.id));
+    }
+  });
+
+  const botonVaciar = document.querySelector(".cart-box .btn-secondary");
+
+  if (botonVaciar != null) {
+    botonVaciar.addEventListener("click", function() {
+      vaciarCarrito();
+    });
+  }
+}
