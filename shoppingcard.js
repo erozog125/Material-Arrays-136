@@ -38,7 +38,7 @@ function calcularSubtotal() {
   return subtotal;
 }
 
-// Esta función muestra el carrito en la página, actualiza el subtotal y el total. También se encarga de mostrar un mensaje si el carrito está vacío.
+// Esta función muestra el carrito en la página, actualiza el subtotal y el total, y también muestra un mensaje si el carrito está vacío.
 function mostrarCarrito() {
   const contenedorCarrito = document.getElementById("cart-items");
   const subtotalTexto = document.getElementById("subtotal");
@@ -118,3 +118,24 @@ function mostrarCarrito() {
   subtotalTexto.textContent = formatearPrecioCarrito(subtotal);
   totalTexto.textContent = formatearPrecioCarrito(subtotal);
 }
+
+// Esta función agrega un producto al carrito y si ya existe, solo aumenta la cantidad.
+function agregarAlCarrito(producto) {
+  const productoEncontrado = carrito.find(function(item) {
+    return item.id === producto.id;
+  });
+
+  if (productoEncontrado != null) {
+    productoEncontrado.cantidad = productoEncontrado.cantidad + 1;
+  } else {
+    carrito.push({
+      id: producto.id,
+      nombre: producto.nombre,
+      precio: producto.precio,
+      cantidad: 1
+    });
+  }
+
+  guardarCarrito();
+  mostrarCarrito();
+} 
