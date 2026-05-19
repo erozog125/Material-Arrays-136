@@ -57,3 +57,27 @@ function configurarFechaMinima() {
 
   fechaEntrega.min = anio + "-" + mes + "-" + dia;
 }
+
+// Esta función revisa si la fecha cumple con los 2 días de anticipación.
+function fechaEsValida() {
+  const fechaEntrega = document.getElementById("delivery-date");
+
+  if (fechaEntrega == null || fechaEntrega.value === "") {
+    alert("Por favor selecciona la fecha de entrega.");
+    return false;
+  }
+
+  const fechaElegida = new Date(fechaEntrega.value + "T00:00:00");
+
+  const fechaMinima = new Date();
+  fechaMinima.setHours(0, 0, 0, 0);
+  fechaMinima.setDate(fechaMinima.getDate() + 2);
+
+  if (fechaElegida < fechaMinima) {
+    alert("Los pedidos deben realizarse con mínimo 2 días de anticipación.");
+    return false;
+  }
+
+  return true;
+}
+
