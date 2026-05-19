@@ -146,3 +146,46 @@ function validarDatosBasicos() {
 
   return true;
 }
+
+// Esta función arma el mensaje final que se enviará por WhatsApp.
+function crearMensajeWhatsApp() {
+  const subtotal = window.obtenerSubtotalCarrito ? window.obtenerSubtotalCarrito() : 0;
+  const domicilio = obtenerValorDomicilio();
+  const total = subtotal + domicilio;
+
+  let mensaje = "";
+
+  mensaje += "Hola, quiero confirmar este pedido de Detallitos Harly:%0A%0A";
+
+  mensaje += "*Resumen del pedido:*%0A";
+  mensaje += encodeURIComponent(crearResumenProductos()) + "%0A";
+
+  mensaje += "*Subtotal:* " + encodeURIComponent(formatearPrecioCheckout(subtotal)) + "%0A";
+  mensaje += "*Domicilio:* " + encodeURIComponent(formatearPrecioCheckout(domicilio)) + "%0A";
+  mensaje += "*Total estimado:* " + encodeURIComponent(formatearPrecioCheckout(total)) + "%0A%0A";
+
+  mensaje += "*Datos de quien compra:*%0A";
+  mensaje += "Nombre: " + encodeURIComponent(obtenerValorInput("buyer-name")) + "%0A";
+  mensaje += "Celular: " + encodeURIComponent(obtenerValorInput("buyer-phone")) + "%0A";
+  mensaje += "Correo: " + encodeURIComponent(obtenerValorInput("buyer-email")) + "%0A%0A";
+
+  mensaje += "*Datos de quien recibe:*%0A";
+  mensaje += "Nombre: " + encodeURIComponent(obtenerValorInput("receiver-name")) + "%0A";
+  mensaje += "Contacto: " + encodeURIComponent(obtenerValorInput("receiver-phone")) + "%0A%0A";
+
+  mensaje += "*Mensaje para la tarjeta:*%0A";
+  mensaje += "De: " + encodeURIComponent(obtenerValorInput("from-name")) + "%0A";
+  mensaje += "Para: " + encodeURIComponent(obtenerValorInput("to-name")) + "%0A";
+  mensaje += "Mensaje: " + encodeURIComponent(obtenerValorInput("card-message")) + "%0A%0A";
+
+  mensaje += "*Datos de entrega:*%0A";
+  mensaje += "Dirección: " + encodeURIComponent(obtenerValorInput("address")) + "%0A";
+  mensaje += "Barrio: " + encodeURIComponent(obtenerValorInput("neighborhood")) + "%0A";
+  mensaje += "Fecha: " + encodeURIComponent(obtenerValorInput("delivery-date")) + "%0A";
+  mensaje += "Hora aproximada: " + encodeURIComponent(obtenerValorInput("delivery-time")) + "%0A";
+  mensaje += "Indicaciones: " + encodeURIComponent(obtenerValorInput("delivery-notes")) + "%0A%0A";
+
+  mensaje += "Entiendo que el pedido debe confirmarse con mínimo 2 días de anticipación y que el total puede variar según disponibilidad.";
+
+  return mensaje;
+}
