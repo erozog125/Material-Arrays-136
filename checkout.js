@@ -116,3 +116,33 @@ function crearResumenProductos() {
 
   return resumen;
 }
+
+// Esta función valida algunos datos básicos del formulario.
+function validarDatosBasicos() {
+  const nombreComprador = obtenerValorInput("buyer-name");
+  const celularComprador = obtenerValorInput("buyer-phone");
+  const direccion = obtenerValorInput("address");
+  const zona = document.getElementById("zone");
+
+  if (nombreComprador === "") {
+    alert("Por favor escribe el nombre de quien compra.");
+    return false;
+  }
+
+  if (celularComprador === "") {
+    alert("Por favor escribe el número de celular.");
+    return false;
+  }
+
+  if (direccion === "") {
+    alert("Por favor escribe la dirección de entrega.");
+    return false;
+  }
+
+  if (zona == null || zona.value === "") {
+    alert("Por favor selecciona la zona de entrega.");
+    return false;
+  }
+
+  return true;
+}
