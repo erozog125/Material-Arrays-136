@@ -189,3 +189,57 @@ function crearMensajeWhatsApp() {
 
   return mensaje;
 }
+
+// Esta función se ejecuta cuando el usuario quiere enviar el pedido.
+function enviarPedidoPorWhatsApp() {
+  if (!validarDatosBasicos()) {
+    return;
+  }
+
+  if (!fechaEsValida()) {
+    return;
+  }
+
+  const mensaje = crearMensajeWhatsApp();
+  const enlace = "https://wa.me/" + numeroWhatsApp + "?text=" + mensaje;
+
+  window.open(enlace, "_blank");
+}
+
+
+// Esta función activa los eventos del checkout.
+function activarCheckout() {
+  const zona = document.getElementById("zone");
+  const botonEnviar = document.getElementById("send-whatsapp-btn");
+
+  if (zona != null) {
+    zona.addEventListener("change", function() {
+      actualizarTotalConDomicilio();
+    });
+  }
+
+  if (botonEnviar != null) {
+    botonEnviar.addEventListener("click", function() {
+      enviarPedidoPorWhatsApp();
+    });
+  }
+
+  // Cada vez que se toca el carrito, actualizamos el total con domicilio.
+  document.addEventListener("click", function() {
+    setTimeout(function() {
+      actualizarTotalConDomicilio();
+    }, 100);
+  });
+}
+
+
+// Cuando carga la página, preparamos el formulario final.
+document.addEventListener("DOMContentLoaded", function() {
+  configurarFechaMinima();
+  actualizarTotalConDomicilio();
+  activarCheckout();
+});
+
+
+// Dejamos esta función disponible por si otro archivo necesita actualizar el total.
+window.actualizarTotalConDomicilio = actualizarTotalConDomicilio;
