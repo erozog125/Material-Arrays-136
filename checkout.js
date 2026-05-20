@@ -22,3 +22,20 @@ function obtenerValorDomicilio() {
 
   return Number(zona.value);
 }
+
+// Esta función actualiza el total final y suma el subtotal del carrito más el domicilio.
+function actualizarTotalConDomicilio() {
+  const deliveryText = document.getElementById("delivery-price");
+  const totalText = document.getElementById("total");
+
+  if (deliveryText == null || totalText == null) {
+    return;
+  }
+
+  const subtotal = window.obtenerSubtotalCarrito ? window.obtenerSubtotalCarrito() : 0;
+  const domicilio = obtenerValorDomicilio();
+  const total = subtotal + domicilio;
+
+  deliveryText.textContent = formatearPrecioCheckout(domicilio);
+  totalText.textContent = formatearPrecioCheckout(total);
+}
