@@ -39,3 +39,21 @@ function actualizarTotalConDomicilio() {
   deliveryText.textContent = formatearPrecioCheckout(domicilio);
   totalText.textContent = formatearPrecioCheckout(total);
 }
+
+// Esta función coloca una fecha mínima de 2 días y así el usuario no puede elegir una fecha demasiado cercana.
+function configurarFechaMinima() {
+  const fechaEntrega = document.getElementById("delivery-date");
+
+  if (fechaEntrega == null) {
+    return;
+  }
+
+  const hoy = new Date();
+  hoy.setDate(hoy.getDate() + 2);
+
+  const anio = hoy.getFullYear();
+  const mes = String(hoy.getMonth() + 1).padStart(2, "0");
+  const dia = String(hoy.getDate()).padStart(2, "0");
+
+  fechaEntrega.min = anio + "-" + mes + "-" + dia;
+}
