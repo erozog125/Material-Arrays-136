@@ -149,19 +149,10 @@ function crearLineaResumen(nombre, valor) {
 
 // Esta función muestra un resumen de lo que la persona ha elegido.
 function mostrarResumenPersonalizacion() {
-  const panel = document.querySelector(".custom-panel");
-
-  if (panel == null) {
-    return;
-  }
-
   let resumen = document.getElementById("breakfast-summary");
 
   if (resumen == null) {
-    resumen = document.createElement("div");
-    resumen.id = "breakfast-summary";
-    resumen.className = "breakfast-summary";
-    panel.appendChild(resumen);
+    return;
   }
 
   resumen.innerHTML = "";

@@ -70,7 +70,7 @@
         <div class="hero-image-bg"></div>
 
         <div class="hero-image-card">
-          <img src="assets/hero-detallitos.png" alt="Detalle personalizado Detallitos Harly">
+          <img src="assets/hero-detallitos.jpg" alt="Detalle personalizado Detallitos Harly">
         </div>
 
         <div class="hero-mini-card">
@@ -138,38 +138,43 @@
 
         <div class="breakfast-layout">
 
-          <article class="base-card">
-            <span class="base-tag">Precio base</span>
-            <h3>Desayuno base personalizado</h3>
-            <strong>$100.000</strong>
+          <div class="breakfast-sidebar">
+            <article class="base-card">
+              <span class="base-tag">Precio base</span>
+              <h3>Desayuno base personalizado</h3>
+              <strong>$100.000</strong>
 
-            <p>
-              Incluye lo esencial para sorprender con un detalle completo, fresco y personalizado.
-            </p>
+              <p>
+                Incluye lo esencial para sorprender con un detalle completo, fresco y personalizado.
+              </p>
 
-            <div class="included-list">
-              <span>☑ 1 bebida fría de fruta de cosecha</span>
-              <span>☑ 1 bebida caliente a elección</span>
-              <span>☑ Variedad de frutas de cosecha</span>
-              <span>☑ Panesitos</span>
-              <span>☑ 1 comida principal a elección</span>
-              <span>☑ 1 combinación de dulces disponibles</span>
-              <span>☑ Torta o postre según disponibilidad</span>
-              <span>☑ Globos temáticos</span>
-              <span>☑ Decoración según la ocasión</span>
-              <span>☑ Tarjeta personalizada con mensaje</span>
-              <span>☑ Domicilio en zona norte o centro-norte</span>
-            </div>
-            <button 
-              type="button"
-              class="add-breakfast-btn"
-              data-id="100"
-              data-nombre="Desayuno base personalizado"
-              data-precio="100000"
-            >
-              Agregar desayuno base al pedido
-          </button>
-          </article>
+              <div class="included-list">
+                <span>☑ 1 bebida fría de fruta de cosecha</span>
+                <span>☑ 1 bebida caliente a elección</span>
+                <span>☑ Variedad de frutas de cosecha</span>
+                <span>☑ Panesitos</span>
+                <span>☑ 1 comida principal a elección</span>
+                <span>☑ 1 combinación de dulces disponibles</span>
+                <span>☑ Torta o postre según disponibilidad</span>
+                <span>☑ Globos temáticos</span>
+                <span>☑ Decoración según la ocasión</span>
+                <span>☑ Tarjeta personalizada con mensaje</span>
+                <span>☑ Domicilio en zona norte o centro-norte</span>
+              </div>
+
+              <button 
+                type="button"
+                class="add-breakfast-btn"
+                data-id="100"
+                data-nombre="Desayuno base personalizado"
+                data-precio="100000"
+              >
+                Agregar desayuno base al pedido
+              </button>
+            </article>
+
+            <div id="breakfast-summary" class="breakfast-summary"></div>
+          </div>
 
           <div class="custom-panel">
             <article class="option-group">
@@ -269,6 +274,7 @@
                     Agregar recargo
                   </button>
                 </div>
+
                 <div class="option-card wide">
                   <h4>Sándwich especial</h4>
                   <p>
@@ -523,7 +529,7 @@
 
         <div class="featured-addons-grid">
           <article class="featured-addon-card">
-            <img src="assets/ramo-flores-1.JPG" alt="Ramo de flores pequeño">
+            <img src="assets/ramo-flores-1.jpg" alt="Ramo de flores pequeño">
             <div>
               <h3>Ramo de flores</h3>
               <p>Ideal para complementar detalles románticos, familiares o fechas especiales.</p>
@@ -532,7 +538,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/ramo-flores-2.PNG" alt="Ramo de flores especial">
+            <img src="assets/ramo-flores-2.jpg" alt="Ramo de flores especial">
             <div>
               <h3>Ramo de flores especial</h3>
               <p>Una opción más llamativa para hacer el regalo más elegante y significativo.</p>
@@ -541,7 +547,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/tabla-quesos-1.JPEG" alt="Tabla de quesos">
+            <img src="assets/tabla-quesos-1.jpg" alt="Tabla de quesos">
             <div>
               <h3>Tabla de quesos</h3>
               <p>Complemento gastronómico para hacer el detalle más completo y especial.</p>
@@ -550,7 +556,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/tabla-quesos-2.JPEG" alt="Charcutería o tabla de quesos">
+            <img src="assets/tabla-quesos-2.jpg" alt="Charcutería o tabla de quesos">
             <div>
               <h3>Charcutería</h3>
               <p>Una opción ideal para anchetas, celebraciones o desayunos más especiales.</p>
@@ -559,7 +565,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/domo-grande-1.PNG" alt="Domo variado grande">
+            <img src="assets/domo-grande-1.jpg" alt="Domo variado grande">
             <div>
               <h3>Domo variado grande</h3>
               <p>Perfecto para agregar dulces, fresas, chocolates u otros productos disponibles.</p>
@@ -568,7 +574,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/domo-grande-2.PNG" alt="Domo grande decorado">
+            <img src="assets/domo-grande-2.jpg" alt="Domo grande decorado">
             <div>
               <h3>Domo decorado</h3>
               <p>Un adicional bonito y llamativo para acompañar desayunos o anchetas.</p>
@@ -577,7 +583,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/parfait.JPEG" alt="Parfait">
+            <img src="assets/parfait-1.jpg" alt="Parfait">
             <div>
               <h3>Parfait</h3>
               <p>Una opción fresca y dulce para complementar el desayuno sorpresa.</p>
@@ -606,9 +612,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayunos-cumpleanos-1.jpeg" alt="Desayuno cumpleaños mujer 1">
-              <img src="assets/desayunos-cumpleanos-2.jpeg" alt="Desayuno cumpleaños mujer 2">
-              <img src="assets/desayunos-cumpleanos-1.jpeg" alt="Desayuno cumpleaños mujer 3">
+              <img src="assets/desayuno-cumpleanos-1.jpg" alt="Desayuno cumpleaños mujer 1">
+              <img src="assets/desayuno-cumpleanos-2.jpg" alt="Desayuno cumpleaños mujer 2">
+              <img src="assets/desayuno-cumpleanos-3.jpg" alt="Desayuno cumpleaños mujer 3">
             </div>
             <div class="portfolio-body">
               <h3>Cumpleaños mujer</h3>
@@ -626,9 +632,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-cumpleanos-4.jpeg" alt="Desayuno cumpleaños hombre 1">
-              <img src="assets/desayuno-cumpleanos-5.png" alt="Desayuno cumpleaños hombre 2">
-              <img src="assets/desayuno-cumpleanos-6.png" alt="Desayuno cumpleaños hombre 3">
+              <img src="assets/desayuno-cumpleanos-4.jpg" alt="Desayuno cumpleaños hombre 1">
+              <img src="assets/desayuno-cumpleanos-5.jpg" alt="Desayuno cumpleaños hombre 2">
+              <img src="assets/desayuno-cumpleanos-6.jpg" alt="Desayuno cumpleaños hombre 3">
             </div>
             <div class="portfolio-body">
               <h3>Cumpleaños hombre</h3>
@@ -646,9 +652,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-infantil-nina-1.png" alt="Desayuno infantil niña 1">
-              <img src="assets/desayuno-infantil-nina-2.png" alt="Desayuno infantil niña 2">
-              <img src="assets/desayuno-infantil-nina-3.png" alt="Desayuno infantil niña 3">
+              <img src="assets/desayuno-infantil-nina-1.jpg" alt="Desayuno infantil niña 1">
+              <img src="assets/desayuno-infantil-nina-2.jpg" alt="Desayuno infantil niña 2">
+              <img src="assets/desayuno-infantil-nina-3.jpg" alt="Desayuno infantil niña 3">
             </div>
             <div class="portfolio-body">
               <h3>Desayunos infantiles niña</h3>
@@ -665,9 +671,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-infantil-nino-1.png" alt="Desayuno infantil niño 1">
-              <img src="assets/desayuno-infantil-nino-2.png" alt="Desayuno infantil niño 2">
-              <img src="assets/desayuno-infantil-nino-3.png" alt="Desayuno infantil niño 3">
+              <img src="assets/desayuno-infantil-nino-1.jpg" alt="Desayuno infantil niño 1">
+              <img src="assets/desayuno-infantil-nino-2.jpg" alt="Desayuno infantil niño 2">
+              <img src="assets/desayuno-infantil-nino-3.jpg" alt="Desayuno infantil niño 3">
             </div>
             <div class="portfolio-body">
               <h3>Desayunos infantiles niño</h3>
@@ -684,9 +690,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-feliz-dia-1.png" alt="Desayuno feliz día 1">
-              <img src="assets/desayuno-feliz-dia-2.png" alt="Desayuno feliz día 2">
-              <img src="assets/desayuno-feliz-dia-3.png" alt="Desayuno feliz día 3">
+              <img src="assets/desayuno-feliz-dia-1.jpg" alt="Desayuno feliz día 1">
+              <img src="assets/desayuno-feliz-dia-2.jpg" alt="Desayuno feliz día 2">
+              <img src="assets/desayuno-feliz-dia-3.jpg" alt="Desayuno feliz día 3">
             </div>
             <div class="portfolio-body">
               <h3>Cumpleaños / Feliz día</h3>
@@ -704,9 +710,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-madre-1.jpeg" alt="Desayuno día de la madre 1">
-              <img src="assets/desayuno-madre-2.png" alt="Desayuno día de la madre 2">
-              <img src="assets/desayuno-madre-3.png" alt="Desayuno día de la madre 3">
+              <img src="assets/desayuno-madre-1.jpg" alt="Desayuno día de la madre 1">
+              <img src="assets/desayuno-madre-2.jpg" alt="Desayuno día de la madre 2">
+              <img src="assets/desayuno-madre-3.jpg" alt="Desayuno día de la madre 3">
             </div>
             <div class="portfolio-body">
               <h3>Día de la madre</h3>
@@ -721,9 +727,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-padre-1.png" alt="Desayuno día del padre 1">
-              <img src="assets/desayuno-padre-2.png" alt="Desayuno día del padre 2">
-              <img src="assets/desayuno-padre-3.png" alt="Desayuno día del padre 3">
+              <img src="assets/desayuno-padre-1.jpg" alt="Desayuno día del padre 1">
+              <img src="assets/desayuno-padre-2.jpg" alt="Desayuno día del padre 2">
+              <img src="assets/desayuno-padre-3.jpg" alt="Desayuno día del padre 3">
             </div>
             <div class="portfolio-body">
               <h3>Día del padre</h3>
@@ -738,9 +744,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-san-valentin-1.png" alt="Desayuno San Valentín 1">
-              <img src="assets/desayuno-san-valentin-2.png" alt="Desayuno San Valentín 2">
-              <img src="assets/desayuno-san-valentin-3.png" alt="Desayuno San Valentín 3">
+              <img src="assets/desayuno-san-valentin-1.jpg" alt="Desayuno San Valentín 1">
+              <img src="assets/desayuno-san-valentin-2.jpg" alt="Desayuno San Valentín 2">
+              <img src="assets/desayuno-san-valentin-3.jpg" alt="Desayuno San Valentín 3">
             </div>
             <div class="portfolio-body">
               <h3>San Valentín</h3>
@@ -755,9 +761,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-aniversario-1.png" alt="Desayuno aniversario 1">
-              <img src="assets/desayuno-aniversario-2.png" alt="Desayuno aniversario 2">
-              <img src="assets/desayuno-aniversario-3.png" alt="Desayuno aniversario 3">
+              <img src="assets/desayuno-aniversario-1.jpg" alt="Desayuno aniversario 1">
+              <img src="assets/desayuno-aniversario-2.jpg" alt="Desayuno aniversario 2">
+              <img src="assets/desayuno-aniversario-3.jpg" alt="Desayuno aniversario 3">
             </div>
             <div class="portfolio-body">
               <h3>Aniversarios</h3>
@@ -772,9 +778,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-amor-y-amistad-1.png" alt="Desayuno amor y amistad 1">
-              <img src="assets/desayuno-amor-y-amistad-2.png" alt="Desayuno amor y amistad 2">
-              <img src="assets/desayuno-amor-y-amistad-3.png" alt="Desayuno amor y amistad 3">
+              <img src="assets/desayuno-amor-amistad-1.jpg" alt="Desayuno amor y amistad 1">
+              <img src="assets/desayuno-amor-amistad-2.jpg" alt="Desayuno amor y amistad 2">
+              <img src="assets/desayuno-amor-amistad-3.jpg" alt="Desayuno amor y amistad 3">
             </div>
             <div class="portfolio-body">
               <h3>Amor y amistad</h3>
@@ -789,9 +795,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-grados-1.png" alt="Desayuno grados 1">
-              <img src="assets/desayunos-grados-2.png" alt="Desayuno grados 2">
-              <img src="assets/desayunos-grados-3.png" alt="Desayuno grados 3">
+              <img src="assets/desayuno-grados-1.jpg" alt="Desayuno grados 1">
+              <img src="assets/desayuno-grados-2.jpg" alt="Desayuno grados 2">
+              <img src="assets/desayuno-grados-3.jpg" alt="Desayuno grados 3">
             </div>
             <div class="portfolio-body">
               <h3>Grados</h3>
@@ -806,9 +812,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/desayuno-quinceanos-1.png" alt="Desayuno quinceaños 1">
-              <img src="assets/cumpleaños-quinceanos-2.png" alt="Desayuno quinceaños 2">
-              <img src="assets/desayuno-quinceanos-3.png" alt="Desayuno quinceaños 3">
+              <img src="assets/desayuno-quinceanos-1.jpg" alt="Desayuno quinceaños 1">
+              <img src="assets/desayuno-quinceanos-2.jpg" alt="Desayuno quinceaños 2">
+              <img src="assets/desayuno-quinceanos-3.jpg" alt="Desayuno quinceaños 3">
             </div>
             <div class="portfolio-body">
               <h3>Quinceaños</h3>
@@ -843,9 +849,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/ancheta-cualquier-ocasion-1.png" alt="Ancheta cualquier ocasión 1">
-              <img src="assets/ancheta-cualquier-ocasion-2.png" alt="Ancheta cualquier ocasión 2">
-              <img src="assets/ancheta-cualquier-ocasion-3.png" alt="Ancheta cualquier ocasión 3">
+              <img src="assets/ancheta-cualquier-ocasion-1.jpg" alt="Ancheta cualquier ocasión 1">
+              <img src="assets/ancheta-cualquier-ocasion-2.jpg" alt="Ancheta cualquier ocasión 2">
+              <img src="assets/ancheta-cualquier-ocasion-3.jpg" alt="Ancheta cualquier ocasión 3">
             </div>
             <div class="portfolio-body">
               <h3>Para cualquier ocasión</h3>
@@ -860,9 +866,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/ancheta-navidad-1.png" alt="Ancheta Navidad 1">
-              <img src="assets/ancheta-navidad-2.png" alt="Ancheta Navidad 2">
-              <img src="assets/ancheta-navidad-3.png" alt="Ancheta Navidad 3">
+              <img src="assets/ancheta-navidad-1.jpg" alt="Ancheta Navidad 1">
+              <img src="assets/ancheta-navidad-2.jpg" alt="Ancheta Navidad 2">
+              <img src="assets/ancheta-navidad-3.jpg" alt="Ancheta Navidad 3">
             </div>
             <div class="portfolio-body">
               <h3>Navidad</h3>
@@ -877,9 +883,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/ancheta-aniversario-1.png" alt="Ancheta aniversario 1">
-              <img src="assets/ancheta-aniversario-2.png" alt="Ancheta aniversario 2">
-              <img src="assets/ancheta-aniversario-3.png" alt="Ancheta aniversario 3">
+              <img src="assets/ancheta-aniversario-1.jpg" alt="Ancheta aniversario 1">
+              <img src="assets/ancheta-aniversario-2.jpg" alt="Ancheta aniversario 2">
+              <img src="assets/ancheta-aniversario-3.jpg" alt="Ancheta aniversario 3">
             </div>
             <div class="portfolio-body">
               <h3>Aniversario</h3>
@@ -894,9 +900,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/ancheta-cumpleanos-1.png" alt="Ancheta cumpleaños 1">
-              <img src="assets/ancheta-cumpleanos-2.png" alt="Ancheta cumpleaños 2">
-              <img src="assets/ancheta-cumpleanos-3.png" alt="Ancheta cumpleaños 3">
+              <img src="assets/ancheta-cumpleanos-1.jpg" alt="Ancheta cumpleaños 1">
+              <img src="assets/ancheta-cumpleanos-2.jpg" alt="Ancheta cumpleaños 2">
+              <img src="assets/ancheta-cumpleanos-3.jpg" alt="Ancheta cumpleaños 3">
             </div>
             <div class="portfolio-body">
               <h3>Cumpleaños</h3>
@@ -911,9 +917,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/ancheta-padre-1.png" alt="Ancheta día del padre 1">
-              <img src="assets/ancheta-padre-2.png" alt="Ancheta día del padre 2">
-              <img src="assets/ancheta-padre-3.png" alt="Ancheta día del padre 3">
+              <img src="assets/ancheta-padre-1.jpg" alt="Ancheta día del padre 1">
+              <img src="assets/ancheta-padre-2.jpg" alt="Ancheta día del padre 2">
+              <img src="assets/ancheta-padre-3.jpg" alt="Ancheta día del padre 3">
             </div>
             <div class="portfolio-body">
               <h3>Día del padre</h3>
@@ -928,9 +934,9 @@
 
           <article class="portfolio-card">
             <div class="photo-collage">
-              <img src="assets/ancheta-variedad-1.png" alt="Ancheta variedad 1">
-              <img src="assets/ancheta-variedad-2.png" alt="Ancheta variedad 2">
-              <img src="assets/ancheta-variedad-3.png" alt="Ancheta variedad 3">
+              <img src="assets/ancheta-variedad-1.jpg" alt="Ancheta variedad 1">
+              <img src="assets/ancheta-variedad-2.jpg" alt="Ancheta variedad 2">
+              <img src="assets/ancheta-variedad-3.jpg" alt="Ancheta variedad 3">
             </div>
             <div class="portfolio-body">
               <h3>Variedad</h3>
@@ -964,7 +970,7 @@
         <div class="decor-grid">
 
           <article class="portfolio-card">
-            <img class="decor-image" src="assets/decoracion-infantil.jpeg" alt="Decoración cumpleaños infantil">
+            <img class="decor-image" src="assets/decoracion-infantil.jpg" alt="Decoración cumpleaños infantil">
             <div class="portfolio-body">
               <h3>Cumpleaños infantiles</h3>
               <p>Decoraciones coloridas y temáticas para cumpleaños de niños.</p>
@@ -977,7 +983,7 @@
           </article>
 
           <article class="portfolio-card">
-            <img class="decor-image" src="assets/decoracion-adultos.png" alt="Decoración cumpleaños adultos">
+            <img class="decor-image" src="assets/decoracion-adultos.jpg" alt="Decoración cumpleaños adultos">
             <div class="portfolio-body">
               <h3>Cumpleaños de adultos</h3>
               <p>Montajes elegantes, modernos o divertidos según el estilo de la celebración.</p>
@@ -990,7 +996,7 @@
           </article>
 
           <article class="portfolio-card">
-            <img class="decor-image" src="assets/decoracion-comunion.jpeg" alt="Decoración primera comunión">
+            <img class="decor-image" src="assets/decoracion-comunion.jpg" alt="Decoración primera comunión">
             <div class="portfolio-body">
               <h3>Primeras comuniones</h3>
               <p>Decoraciones delicadas para una celebración familiar y significativa.</p>
@@ -1003,7 +1009,7 @@
           </article>
 
           <article class="portfolio-card">
-            <img class="decor-image" src="assets/decoracion-eventos.png" alt="Decoración otros eventos">
+            <img class="decor-image" src="assets/decoracion-eventos.jpg" alt="Decoración otros eventos">
             <div class="portfolio-body">
               <h3>Otros eventos especiales</h3>
               <p>Decoraciones para grados, aniversarios, reuniones familiares y fechas especiales.</p>
@@ -1216,7 +1222,6 @@
             <button type="button" class="btn btn-primary full-btn" id="send-whatsapp-btn">
               Enviar pedido por WhatsApp
             </button>
-          
           </form>
         </div>
       </div>
@@ -1234,7 +1239,7 @@
         </div>
 
         <div class="contact-card">
-          <img src="assets/logo-detallitos-harly.jpeg" alt="Logo Detallitos Harly">
+          <img src="assets/logo-detallitos-harly.png" alt="Logo Detallitos Harly">
 
           <h3>Detallitos Harly</h3>
           <p>WhatsApp: +57 321 746 5371</p>
@@ -1272,6 +1277,5 @@
   <script src="breakfast.js" defer></script>
   <script src="checkout.js" defer></script>
   <script src="portfolio.js" defer></script>
-  
 </body>
 </html>
