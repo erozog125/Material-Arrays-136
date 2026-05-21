@@ -160,6 +160,15 @@
               <span>☑ Tarjeta personalizada con mensaje</span>
               <span>☑ Domicilio en zona norte o centro-norte</span>
             </div>
+            <button 
+              type="button"
+              class="add-breakfast-btn"
+              data-id="100"
+              data-nombre="Desayuno base personalizado"
+              data-precio="100000"
+            >
+              Agregar desayuno base al pedido
+          </button>
           </article>
 
           <div class="custom-panel">
@@ -249,8 +258,17 @@
                   <h4>Waffles</h4>
                   <p>Con fruta, salsa de chocolate y helado.</p>
                   <span>+$2.000</span>
-                </div>
 
+                  <button 
+                    type="button"
+                    class="add-breakfast-btn option-add-btn"
+                    data-id="101"
+                    data-nombre="Recargo por waffles"
+                    data-precio="2000"
+                  >
+                    Agregar recargo
+                  </button>
+                </div>
                 <div class="option-card wide">
                   <h4>Sándwich especial</h4>
                   <p>
@@ -258,6 +276,16 @@
                     lechuga crespa, pan y huevos de codorniz.
                   </p>
                   <span>+$8.000</span>
+
+                  <button 
+                    type="button"
+                    class="add-breakfast-btn option-add-btn"
+                    data-id="102"
+                    data-nombre="Recargo por sándwich especial"
+                    data-precio="8000"
+                  >
+                    Agregar recargo
+                  </button>
                 </div>
               </div>
             </article>
@@ -504,7 +532,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/ramo-flores-2.png" alt="Ramo de flores especial">
+            <img src="assets/ramo-flores-2.PNG" alt="Ramo de flores especial">
             <div>
               <h3>Ramo de flores especial</h3>
               <p>Una opción más llamativa para hacer el regalo más elegante y significativo.</p>
@@ -513,7 +541,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/tabla-quesos-1.jpeg" alt="Tabla de quesos">
+            <img src="assets/tabla-quesos-1.JPEG" alt="Tabla de quesos">
             <div>
               <h3>Tabla de quesos</h3>
               <p>Complemento gastronómico para hacer el detalle más completo y especial.</p>
@@ -522,7 +550,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/tabla-quesos-2.jpeg" alt="Charcutería o tabla de quesos">
+            <img src="assets/tabla-quesos-2.JPEG" alt="Charcutería o tabla de quesos">
             <div>
               <h3>Charcutería</h3>
               <p>Una opción ideal para anchetas, celebraciones o desayunos más especiales.</p>
@@ -531,7 +559,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/domo-grande-1.png" alt="Domo variado grande">
+            <img src="assets/domo-grande-1.PNG" alt="Domo variado grande">
             <div>
               <h3>Domo variado grande</h3>
               <p>Perfecto para agregar dulces, fresas, chocolates u otros productos disponibles.</p>
@@ -540,7 +568,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/domo-grande-2.png" alt="Domo grande decorado">
+            <img src="assets/domo-grande-2.PNG" alt="Domo grande decorado">
             <div>
               <h3>Domo decorado</h3>
               <p>Un adicional bonito y llamativo para acompañar desayunos o anchetas.</p>
@@ -549,7 +577,7 @@
           </article>
 
           <article class="featured-addon-card">
-            <img src="assets/parfait.jpeg" alt="Parfait">
+            <img src="assets/parfait.JPEG" alt="Parfait">
             <div>
               <h3>Parfait</h3>
               <p>Una opción fresca y dulce para complementar el desayuno sorpresa.</p>
@@ -1185,9 +1213,10 @@
               </p>
             </div>
 
-            <button type="button" class="btn btn-primary full-btn">
+            <button type="button" class="btn btn-primary full-btn" id="send-whatsapp-btn">
               Enviar pedido por WhatsApp
             </button>
+          
           </form>
         </div>
       </div>
@@ -1240,5 +1269,7 @@
 
   <script src="market.js" defer></script>
   <script src="shoppingcard.js" defer></script>
+  <script src="checkout.js" defer></script>
+  
 </body>
 </html>

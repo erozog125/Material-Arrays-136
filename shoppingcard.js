@@ -194,10 +194,20 @@ function vaciarCarrito() {
   mostrarCarrito();
 }
 
+// Esta función toma los datos de un botón del desayuno lo cual nos sirve para agregar al carrito el desayuno base o lo adicional.
+function crearProductoDesdeBoton(boton) {
+  return {
+    id: Number(boton.dataset.id),
+    nombre: boton.dataset.nombre,
+    precio: Number(boton.dataset.precio)
+  };
+}
+
 // Esta función escucha los clics en los botones de la página y dependiendo del botón, llama a la función correspondiente para agregar, aumentar, restar o eliminar productos del carrito. 
 function activarEventosCarrito() {
   document.addEventListener("click", function(evento) {
     const botonAgregar = evento.target.closest(".addon-add-btn");
+    const botonDesayuno = evento.target.closest(".add-breakfast-btn");
     const botonSumar = evento.target.closest(".cart-plus-btn");
     const botonRestar = evento.target.closest(".cart-minus-btn");
     const botonEliminar = evento.target.closest(".cart-delete-btn");
@@ -212,6 +222,11 @@ function activarEventosCarrito() {
       if (producto != null) {
         agregarAlCarrito(producto);
       }
+    }
+
+    if (botonDesayuno != null) {
+      const producto = crearProductoDesdeBoton(botonDesayuno);
+      agregarAlCarrito(producto);
     }
 
     if (botonSumar != null) {
@@ -236,7 +251,7 @@ function activarEventosCarrito() {
   }
 }
 
-// Cuando la página carga, recuperamos el carrito guardado y activamos los botones.
+// Funcion para que cuando la página cargue, recuperamos el carrito guardado y activamos los botones.
 document.addEventListener("DOMContentLoaded", function() {
   cargarCarrito();
   mostrarCarrito();
