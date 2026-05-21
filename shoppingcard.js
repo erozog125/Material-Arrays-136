@@ -249,6 +249,14 @@ function activarEventosCarrito() {
       vaciarCarrito();
     });
   }
+
+  if (botonAdicionalSimple != null) {
+    const producto = crearProductoAdicionalSimple(botonAdicionalSimple);
+ 
+    if (producto != null) { 
+    agregarAlCarrito(producto); 
+    }
+  }
 }
 
 // Funcion para que cuando la página cargue, recuperamos el carrito guardado y activamos los botones.
@@ -268,3 +276,30 @@ window.obtenerSubtotalCarrito = function() {
 };
 
 window.mostrarCarrito = mostrarCarrito;
+
+// Esta función toma el nombre y precio de una tarjeta pequeña de adicionales, que sirve para que los botones "Agregar a mi idea" también agreguen al carrito.
+function crearProductoAdicionalSimple(boton) {
+  const tarjeta = boton.closest(".small-product");
+
+  if (tarjeta == null) {
+    return null;
+  }
+
+  const nombre = tarjeta.querySelector("h4").textContent.trim();
+
+  let precioTexto = tarjeta.querySelector("strong").textContent;
+  precioTexto = precioTexto.replace("$", "");
+  precioTexto = precioTexto.split(".").join("");
+  precioTexto = precioTexto.trim();
+
+  const precio = Number(precioTexto);
+
+  const tarjetas = Array.from(document.querySelectorAll(".small-product"));
+  const posicion = tarjetas.indexOf(tarjeta);
+
+  return {
+    id: 2000 + posicion,
+    nombre: nombre,
+    precio: precio
+  };
+}
