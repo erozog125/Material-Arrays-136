@@ -911,6 +911,14 @@ textarea {
   box-shadow: 0 10px 26px rgba(63, 39, 32, 0.07);
 }
 
+.cart-box {
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  transition: 0.3s ease;
+
+}
+
 .cart-box h3,
 .checkout-form h3 {
   font-size: 1.35rem;
@@ -1117,6 +1125,10 @@ textarea {
   }
 
   .breakfast-sidebar {
+    position: static;
+  }
+
+  .cart-box {
     position: static;
   }
 
